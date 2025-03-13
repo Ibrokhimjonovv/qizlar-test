@@ -1,0 +1,49 @@
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .h-inner {
+        max-width: 1366px;
+        height: 120px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+
+        .logo {
+            width: 150px;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .document {
+            a {
+                background-color: #ea1e63;
+                // background-color: #1976d2;
+                padding: 10px 17px;
+                border-radius: 5px;
+                color: #fff;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #header {
+        .h-inner {
+            .logo {
+                width: 120px;
+            }
+        }
+    }
+}

@@ -1,0 +1,159 @@
+#offert {
+  .offert-popup-shape {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fedfe42c;
+    backdrop-filter: blur(5px);
+    z-index: -999;
+    opacity: 0;
+    cursor: url(./close-outline.svg), auto;
+
+    &.active {
+      opacity: 1;
+      z-index: 999;
+    }
+  }
+
+  .offert-popup {
+    position: fixed;
+    width: 80%;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ea1e62;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    padding: 10px 0;
+    padding-bottom: 40px;
+    z-index: -999;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+      z-index: 999;
+    }
+
+    .popup-inner {
+      padding: 0 20px;
+      overflow: auto;
+      height: 99%;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    p {
+      color: #fff;
+    }
+
+    .tool {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 9%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      flex-direction: column;
+      row-gap: 8px;
+      background-color: #ea1e62;
+
+      .line {
+        width: 90%;
+        margin: 0 auto;
+        height: 4px;
+        background: linear-gradient(to left, transparent, #fff, transparent);
+      }
+    }
+  }
+
+  .input-row {
+    flex-direction: column;
+    row-gap: 0 !important;
+  }
+
+  .form-control {
+    position: relative;
+    padding-left: 36px;
+    cursor: pointer;
+    color: #fff;
+
+    &.cont-1 {
+        color: #ea1e62;
+    }
+  }
+
+  /* Brauzerning checkboxini berkitish */
+  .form-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Maxsus checkboxga style berish  */
+  .custom-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #ddd;
+  }
+
+  /* Sichqoncha olib borilganda orqa fon rangini o'zgartirish */
+  .form-control input:hover ~ .custom-checkbox {
+    background-color: #ccc;
+  }
+
+  /* Checkbox tanlanganda, uning orqa fon rangini o'zgartirish */
+  .form-control input:checked ~ .custom-checkbox {
+    background-color: #2d846e;
+
+    &.box-1 {
+        background-color: #ea1e62;
+    }
+  }
+
+  /* Checkbox tanlanganligini bildiruvchi belgi yaratish */
+  .custom-checkbox::after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Tanlangan paytida belgini ko'rsatish  */
+  .form-control input:checked ~ .custom-checkbox::after {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+    #offert {
+        .offert-popup {
+            width: 90%;
+            .popup-inner {
+                height: 97%;
+            }
+        }    
+        .form-control {
+            font-size: 15px;
+        }   
+    }
+}

@@ -1,0 +1,193 @@
+#signup {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 70px 0 30px;
+  padding-top: 110px;
+
+  #text-1 {
+    color: #ea1e63;
+    // color: #1976d2d3;
+    text-align: center;
+    animation: t1 1.5s forwards;
+    position: relative;
+    padding: 0 30px;
+  }
+
+  h1 {
+    margin: 10px 0;
+    color: #ea1e63;
+    // color: #1976d2;
+    position: relative;
+
+    animation: t2 1.5s forwards;
+  }
+
+  @keyframes t1 {
+    0% {
+      opacity: 0;
+      left: -70px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
+  @keyframes t2 {
+    0% {
+      opacity: 0;
+      right: -70px;
+    }
+
+    100% {
+      opacity: 1;
+      right: 0;
+    }
+  }
+
+  .signup-container {
+    display: flex;
+    .s-left {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .signup-content {
+        width: 600px;
+        form {
+          width: 100%;
+          .input-row {
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            // margin-top: 10px;
+            animation: i2 2s forwards;
+            position: relative;
+            opacity: 0;
+            animation-delay: 0.3s;
+            @keyframes i2 {
+              0% {
+                opacity: 0;
+              }
+
+              100% {
+                opacity: 1;
+              }
+            }
+
+            &.mt-0 {
+              margin-top: 0;
+              .input-col {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+              }
+            }
+
+            .input-col {
+              width: 50%;
+
+              &.w-100 {
+                width: 100%;
+
+                textarea {
+                  height: 150px;
+                }
+              }
+              input,
+              select,
+              textarea {
+                width: 100%;
+                height: 45px;
+                background-color: #ea1e623f;
+                // background-color: #1976d227;
+                border: 1px solid #ea1e63;
+                // border: 1px solid #1976d2;
+                border-radius: 10px;
+                padding: 5px 10px;
+                font-size: 15px;
+                resize: none;
+                color: #ea1e63;
+                // color: #1976d2;
+
+                option {
+                  background-color: #ea1e63;
+                  // background-color: #1976d2;
+                  color: #fff;
+                }
+
+                &::placeholder {
+                  color: #ea1e63;
+                  // color: #1976d2;
+                }
+
+                & * {
+                  cursor: pointer;
+                }
+              }
+
+              span {
+                font-size: 15px;
+                color: red;
+                // margin-top: 7px;
+                padding: 5px 0;
+                display: block;
+
+                &.t-error {
+                  position: relative;
+                  top: -5px;
+                }
+              }
+
+              button {
+                padding: 0 15px;
+                height: 43px;
+                cursor: pointer;
+                font-size: 15px;
+                border-radius: 10px;
+                border: none;
+                background-color: #ea1e63;
+                // background-color: #1976d2;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #signup {
+    h1 {
+      font-size: 26px;
+      margin-top: 0;
+    }
+    .signup-container {
+      .s-left {
+        .signup-content {
+          width: 100%;
+          padding: 0 30px;
+          form {
+            .input-row {
+              flex-direction: column;
+              gap: 0;
+
+              .input-col {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
