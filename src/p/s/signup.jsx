@@ -5,49 +5,57 @@ import Regions from "../../c/r/regions";
 import { AppContext } from "../../context";
 import FileInput from "../../c/f/fileInput";
 import Offert from "../../c/o/offert";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { selectedDistrict, selectedRegion, errors, setErrors, isCheck } =
+  const { selectedDistrict, selectedRegion, errors, setErrors, isCheck, setSuccess } =
     useContext(AppContext);
+    const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(null);
+  const [file, setFile] = useState(null);
+
   const [formData, setFormData] = useState({
-    name: "", // Ism
-    surename: "", // Familiya
-    middle_name: "", // Sharif
-    phone_number: "", // Telefon raqam
-    b_day: "", // Tug‘ilgan sana (YYYY-MM-DD)
-    tg_username: "", // tg_username username
-    email: "", // Email
-    place_of_study: "", // O‘qish joyi
-    direction: "", // Yo‘nalish
-    file: null, // Fayl yuklash
-    province: selectedRegion, // Viloyat
-    district: selectedDistrict, // Tuman
-    about: "", // O‘zingiz haqingizda
+    name: "",
+    surename: "",
+    middle_name: "",
+    phone_number: "",
+    b_day: "",
+    tg_username: "",
+    email: "",
+    place_of_study: "",
+    direction: "",
+    file: null,
+    province: selectedRegion,
+    district: selectedDistrict,
+    about: "",
   });
 
   const [fileName, setFileName] = useState("");
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-
-    if (type === "file") {
+    if (type === "filee") {
       const file = files[0];
-      setFormData({
-        ...formData,
+      if (!file) {
+        console.error("Fayl tanlanmagan yoki bo‘sh!");
+        return;
+      }
+      setFormData((prev) => ({
+        ...prev,
         [name]: file,
-      });
-      setFileName(file ? file.name : "");
+      }));
+      setFileName(file.name);
     } else {
-      setFormData({
-        ...formData,
+      setFormData((prev) => ({
+        ...prev,
         [name]: value,
-      });
+      }));
     }
   };
-
   const validateDate = (date) => {
     const regex = /^(\d{2})\.(\d{2})\.(\d{4})$/;
     const match = date.match(regex);
@@ -80,7 +88,7 @@ const Signup = () => {
       errors.tg_username = "Telegram kiritish shart!";
     if (!formData.about.trim())
       errors.about = "O'zingiz haqingizda ma'lumot kiritish shart!";
-    if (!formData.file) {
+    if (!file) {
       errors.file = "Tavsiya noma kiritish shart!";
     }
     if (!formData.phone_number.trim() || formData.phone_number.includes("_"))
@@ -99,11 +107,7 @@ const Signup = () => {
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
   const handleSubmit = async (e) => {
-    console.log("====================================");
-    console.log(formData);
-    console.log("====================================");
     e.preventDefault();
     if (!validateForm()) return;
     setLoading(true);
@@ -117,19 +121,15 @@ const Signup = () => {
     formDataToSend.append("surename", formData.surename);
     formDataToSend.append("middle_name", formData.middle_name);
     formDataToSend.append("phone_number", formData.phone_number);
-    formDataToSend.append("b_day", formatBday(formData.b_day)); // YYYY-MM-DD format
+    formDataToSend.append("b_day", formatBday(formData.b_day));
     formDataToSend.append("tg_username", formData.tg_username);
     formDataToSend.append("email", formData.email);
     formDataToSend.append("place_of_study", formData.place_of_study);
     formDataToSend.append("direction", formData.direction);
-    formDataToSend.append("province", formData.province);
-    formDataToSend.append("district", formData.district);
+    formDataToSend.append("province", selectedRegion);
+    formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
-
-    // Faylni faqat bor bo'lsa qo'shamiz
-    if (formData.file) {
-      formDataToSend.append("file", formData.file);
-    }
+    formDataToSend.append("file", file);
 
     try {
       const response = await fetch("http://195.158.4.220:8888/register/", {
@@ -142,11 +142,10 @@ const Signup = () => {
       }
 
       const data = await response.json();
-      setSuccess("Ro‘yxatdan o‘tish muvaffaqiyatli!");
-      console.log("Server javobi:", data);
+      setSuccess(true);
+      navigate('/success')
     } catch (err) {
       setErrors("Xatolik yuz berdi. Qaytadan urinib ko‘ring.");
-      console.error("Xatolik:", err);
     } finally {
       setLoading(false);
     }
@@ -154,7 +153,9 @@ const Signup = () => {
 
   return (
     <div id="signup">
-      <p id="text-1">Raqamli avlod qizlar respublika tanloviga start beramiz.</p>
+      <p id="text-1">
+        Raqamli avlod qizlar respublika tanloviga start beramiz.
+      </p>
       <div className="signup-container">
         <div className="s-left">
           <h1>Ro'yxatdan o'tish</h1>
@@ -264,12 +265,12 @@ const Signup = () => {
                     <option value="" disabled>
                       Yo'nalish tanlang *
                     </option>
-                    <option value="1">Yo'nalish 2</option>
-                    <option value="2">Yo'nalish 3</option>
+                    <option value="Yo'nalish 2">Yo'nalish 2</option>
+                    <option value="Yo'nalish 3">Yo'nalish 3</option>
                   </select>
                   <span className="error">{errors.direction}</span>
                 </div>
-                <FileInput change={handleChange} fileName={fileName} />
+                <FileInput change={handleFileChange} fileName={file ? file.name : ''} />
               </div>
               <Regions />
               <div className="input-row">

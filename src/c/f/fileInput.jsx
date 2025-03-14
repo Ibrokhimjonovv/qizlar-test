@@ -3,7 +3,7 @@ import { AppContext } from "../../context";
 import "./fileInput.scss";
 
 const FileInput = ({change, fileName}) => {
-  const { errors } = useContext(AppContext);
+  const { errors, setFile } = useContext(AppContext);
 
   return (
     <div className="input-col">

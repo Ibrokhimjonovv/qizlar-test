@@ -1,0 +1,30 @@
+#not {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    row-gap: 20px;
+
+    h1 {
+        font-size: 40px;
+        color: #ea1e63;
+
+        span {
+            font-size: 26px;
+        }
+    }
+
+    .to-back {
+        a {
+            padding: 7px 15px;
+            color: #fff;
+            background-color: #ea1e63;
+            border-radius: 5px;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}

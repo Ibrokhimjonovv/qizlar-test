@@ -30,7 +30,8 @@ const Regions = () => {
 
   const handleRegionChange = async (event) => {
     const selectedRegionId = Number(event.target.value);
-    setSelectedRegion(selectedRegionId);
+    const fdata = regions.find((e) => Number(e.id) === selectedRegionId)
+    setSelectedRegion(fdata.name_uz.replace(/�/g, "'"));
     try {
       const response = await fetch(districtsURL);
       if (response.ok) {
@@ -51,9 +52,8 @@ const Regions = () => {
   };
 
   const handleDistrictChange = (event) => {
-    console.log(Number(event.target.value));
-    
-    setSelectedDistrict(Number(event.target.value));
+    const fdata = districts.find((e) => Number(e.id) === Number(event.target.value))
+    setSelectedDistrict(fdata.name_uz.replace(/�/g, "'"));
   };
 
   return (

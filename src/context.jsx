@@ -1,12 +1,14 @@
-import React, { Children, createContext, useState } from "react";
+import React, { Children, createContext, useContext, useState } from "react";
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [selectedRegion, setSelectedRegion] = useState(null);
-  const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
   const [errors, setErrors] = useState({});
   const [isCheck, setIsCheck] = useState(false);
+  const [file, setFile] = useState(null);
+  const [ success, setSuccess ] = useState(false);
 
 
   return (
@@ -19,7 +21,11 @@ export const AppProvider = ({ children }) => {
         errors,
         setErrors,
         isCheck,
-        setIsCheck
+        setIsCheck,
+        file,
+        setFile,
+        success,
+        setSuccess,
       }}
     >
       {children}
