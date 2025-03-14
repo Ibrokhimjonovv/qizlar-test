@@ -132,7 +132,7 @@ const Signup = () => {
     formDataToSend.append("file", file);
 
     try {
-      const response = await fetch("http://195.158.4.220:8888/register/", {
+      const response = await fetch("https://online.raqamliavlod.uz/register/", {
         method: "POST",
         body: formDataToSend,
       });
