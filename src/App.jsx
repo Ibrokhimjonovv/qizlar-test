@@ -18,7 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/signup" element={<Signup />}/>
-        {success && <Route path="/success" element={<Successfull />}/>}
+        {/* {success && <Route path="/success" element={<Successfull />}/>} */}
+        <Route path="/success" element={<Successfull />}/>
         <Route path="*" element={<Not />}/>
       </Routes>
     </BrowserRouter>
