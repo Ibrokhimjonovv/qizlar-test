@@ -17,7 +17,8 @@ const Signup = () => {
     setSuccess,
     selectedFiles,
     setSelectedFiles,
-    file
+    file,
+    setFile
   } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -165,7 +166,7 @@ const Signup = () => {
       }
 
       const data = await response.json();
-      // setFile(null)
+      setFile(null)
       setSuccess(true);
       navigate("/success");
     } catch (err) {
