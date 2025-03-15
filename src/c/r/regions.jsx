@@ -73,7 +73,9 @@ const Regions = () => {
             </option>
           ))}
         </select>
-        <span className="error">{errors.province}</span>
+        {
+          errors.province && <span className="error">{errors.province}</span>
+        }
       </div>
       <div className="input-col">
         <select
@@ -90,7 +92,9 @@ const Regions = () => {
             </option>
           ))}
         </select>
-        <span className="error">{errors.district}</span>
+        {
+          errors.district && <span className="error">{errors.district}</span>
+        }
       </div>
     </div>
   );

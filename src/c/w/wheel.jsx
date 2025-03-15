@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./wheel.scss";
 
 const Wheel = () => {
   const [degree, setDegree] = useState(0);
+  const [speed, setSpeed] = useState(0.5); // Aylanish tezligi (past bo'lsa sekinroq)
   const [spinning, setSpinning] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -14,22 +15,28 @@ const Wheel = () => {
     Finlandiya: "https://flagcdn.com/w320/fi.png",
     "Janubiy Koreya": "https://flagcdn.com/w320/kr.png",
   };
-  
+
   const segmentAngle = 360 / segments.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDegree((prev) => prev + speed);
+    }, 16); // Har 16ms da (taxminan 60FPS) aylantiramiz
+
+    return () => clearInterval(interval);
+  }, [speed]);
 
   const spinWheel = () => {
     if (!spinning) {
       setSpinning(true);
-      const extraSpin = 1800 + Math.floor(Math.random() * 360);
-      const newDegree = degree + extraSpin;
-
-      setDegree(newDegree);
+      setSpeed(10); // Bosilganda tez aylanadi
 
       setTimeout(() => {
+        setSpeed(0.5); // 5 sekunddan keyin yana sekin aylana boshlaydi
         setSpinning(false);
 
         // **Markazga to‘g‘ri kelgan segmentni aniqlash**
-        const normalizedDegree = (430 - (newDegree % 360)) % 360;
+        const normalizedDegree = (430 - (degree % 360)) % 360;
         const newIndex =
           Math.floor(normalizedDegree / segmentAngle) % segments.length;
 
@@ -42,37 +49,32 @@ const Wheel = () => {
     <>
       <div className="wheel-container">
         <div className="wheel" style={{ transform: `rotate(${degree}deg)` }}>
-          {segments.map((text, index) => {
-            const previousIndex =
-              (selectedIndex - 1 + segments.length) % segments.length; // Oldingi segmentni topish
-
-            return (
-              <div
-                key={index}
-                className="segment"
-                style={{
-                  transform: `rotate(${index * segmentAngle}deg)`,
-                  backgroundImage: `url(${flagUrls[text]})`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  zIndex:
-                    selectedIndex !== null && index === previousIndex ? 3 : 1,
-                }}
-              >
-                <span className="segment-text">{text}</span>
-              </div>
-            );
-          })}
+          {segments.map((text, index) => (
+            <div
+              key={index}
+              className="segment"
+              style={{
+                transform: `rotate(${index * segmentAngle}deg)`,
+                backgroundImage: `url(${flagUrls[text]})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+              }}
+            >
+              <span className="segment-text">{text}</span>
+            </div>
+          ))}
         </div>
-        <button onClick={spinWheel} disabled={spinning} id="spin-btn">
-          <span>Bosing</span>
+        <button id="spin-btn" onClick={spinWheel}>
+          <span></span>
           <div className="triangle"></div>
         </button>
-
-        {/* Tanlangan segmentni pastda ko'rsatish */}
       </div>
       {selectedIndex !== null && (
-        <div className="result">Qoyil agar tanlovda g'olib bo'lsangiz <span>{segments[selectedIndex]}</span>ga sayohat chiptasini yutib olishingiz mumkun!</div>
+        <div className="result">
+          Qoyil agar tanlovda g'olib bo'lsangiz{" "}
+          <span>{segments[selectedIndex]}</span>ga sayohat chiptasini yutib
+          olishingiz mumkun!
+        </div>
       )}
     </>
   );

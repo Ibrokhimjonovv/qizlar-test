@@ -255,8 +255,9 @@ const Signup = () => {
                   <span className="error">{errors.place_of_study}</span>
                 </div>
               </div>
+              <Regions />
               <div className="input-row">
-                <div className="input-col">
+                {/* <div className="input-col">
                   <select
                     name="direction"
                     value={formData.direction}
@@ -269,10 +270,9 @@ const Signup = () => {
                     <option value="Yo'nalish 3">Yo'nalish 3</option>
                   </select>
                   <span className="error">{errors.direction}</span>
-                </div>
+                </div> */}
                 <FileInput change={handleFileChange} fileName={file ? file.name : ''} />
               </div>
-              <Regions />
               <div className="input-row">
                 <div className="input-col w-100">
                   <textarea

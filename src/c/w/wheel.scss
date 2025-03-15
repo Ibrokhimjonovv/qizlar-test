@@ -17,6 +17,7 @@
   position: relative;
   transition: transform 5s ease-out;
   overflow: hidden;
+  background-color: #fedfe4;
 
 }
 
@@ -87,6 +88,7 @@
   padding: 0 30px;
   text-align: center;
   margin-top: 15px;
+  z-index: 1;
 
   span {
     font-weight: 600;
