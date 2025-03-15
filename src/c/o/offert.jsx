@@ -17,70 +17,67 @@ const Offert = () => {
       ></div>
       <div className={`offert-popup ${isChecked ? "active" : ""}`}>
         <div className="popup-inner">
-          <h2>Offerta sarlavhasi</h2>
+          <h2>RAQAMLI AVLOD QIZLARI TANLOVI OFERTASI</h2>
+          <p className="little-title">1. Umumiy qoidalar</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus
-            neque ad nisi cum obcaecati labore soluta enim dolore tempora, nam
-            nesciunt rem similique facere ratione maiores id excepturi facilis
-            magni architecto esse voluptas voluptatum quisquam. Esse quam
-            sapiente doloremque possimus reiciendis consequatur repudiandae et
-            neque iste reprehenderit eligendi assumenda quasi doloribus maxime
-            tempora magni, ut unde maiores. Illum magnam ut quisquam, repellat
-            pariatur mollitia hic similique! Veritatis, voluptates at blanditiis
-            adipisci ullam, sapiente labore nisi mollitia ipsa culpa sunt
-            nostrum voluptatum officia debitis, libero esse id dolore accusamus
-            cum expedita consequatur incidunt! Totam et error soluta, possimus
-            praesentium asperiores doloribus quos accusantium doloremque
-            ratione! In voluptatibus dicta architecto? Officia aperiam, totam
-            autem, eius repellendus accusamus voluptates ex hic nobis fugiat,
-            ipsa labore voluptatibus facilis mollitia quidem aliquid. Voluptate
-            labore deleniti provident architecto modi. Optio ratione doloribus
-            neque dolorum nobis deserunt non numquam tempore sed aperiam vero
-            minima eum, veritatis praesentium dicta minus est laudantium
-            repellendus illo ea officiis qui? Asperiores qui nam impedit beatae
-            aperiam quod laboriosam voluptate rerum sit ipsam consequatur, eos
-            cupiditate vitae nisi quas nesciunt fugiat porro. Soluta magnam quas
-            accusamus provident, ipsa iure aspernatur corrupti amet illum beatae
-            odio quasi quod quaerat voluptatibus necessitatibus error? Illo ut
-            vero velit, pariatur provident dignissimos beatae nulla itaque
-            reprehenderit nostrum, corporis sequi! Porro cupiditate voluptate
-            nihil iure dolor veritatis eum nisi aut vel laudantium illum nemo
-            provident, magni excepturi alias? Sit iure voluptas tempore amet,
-            veniam sed. Laboriosam quo at dolores quos cumque corrupti nihil.
-            Laborum eos reiciendis repellat ipsum hic, maxime facilis ea
-            asperiores possimus? Vitae fugiat at veniam quisquam ipsam dicta
-            voluptas, fugit suscipit ex aut, nobis similique ad deleniti culpa,
-            ut obcaecati voluptatibus dignissimos quas perspiciatis beatae illum
-            voluptatem nisi! Quia, quas. Quia ad corrupti quos sint officiis
-            optio inventore non consequuntur, atque ratione beatae nostrum
-            quisquam veritatis ducimus dolore a mollitia ullam. Veniam rerum
-            recusandae cupiditate voluptas aliquid. Unde corrupti modi
-            laudantium tenetur. Quibusdam vel itaque mollitia molestias deserunt
-            molestiae architecto explicabo rem eaque porro ea aperiam dolorem
-            deleniti earum eveniet distinctio similique quis odio et, totam sed
-            velit corporis. Reiciendis fugit nesciunt in qui provident natus
-            doloremque? Eos tenetur maiores, doloremque voluptas eum excepturi
-            possimus facilis similique dicta porro, quas modi, debitis sit.
-            Tempore sequi libero laudantium vero voluptas? Dolor, nemo animi?
-            Unde ipsa placeat, eos enim explicabo deleniti ducimus? Eius
-            accusantium ullam cum labore laudantium ratione atque culpa! Ad
-            corrupti architecto aut non mollitia harum fugit aliquid, nesciunt
-            asperiores quas. Excepturi ad quis nemo veniam ipsam rerum repellat
-            omnis voluptatum atque quos ullam impedit cumque possimus in,
-            adipisci, laborum fugit harum error! Cumque voluptatum, nemo aliquid
-            architecto aut vero necessitatibus deleniti sapiente harum
-            voluptates alias iure. Asperiores fugiat officiis tempora voluptatem
-            quo expedita accusamus vero dolores repudiandae ipsa aspernatur
-            nihil distinctio nemo consequatur reiciendis minus, fuga sapiente!
-            Assumenda, totam. Temporibus dolorem perferendis unde dolore magni
-            laboriosam obcaecati esse, ad similique. Esse quasi fugiat amet a
-            sit laborum molestiae asperiores, quas ipsa sequi quod laboriosam
-            voluptatum optio quidem. Iusto placeat quo animi eius?
+            1.1. Ushbu oferta (keyingi o‘rinlarda "Oferta") "Raqamli Avlod
+            Qizlari" tanlovida ishtirok etuvchi shaxslar (keyingi o‘rinlarda
+            "Ishtirokchi") uchun majburiy hisoblanadi.
+          </p>
+          <p>
+            1.2. Tanlovda ishtirok etish orqali, Ishtirokchi ushbu Oferta
+            shartlariga to‘liq rozilik bildiradi.
+          </p>
+          <p className="little-title">2. Tanlov shartlari</p>
+          <p>
+            2.1. "Raqamli Avlod Qizlari" tanlovi raqamli texnologiyalar sohasida
+            iqtidorli yoshlarni aniqlash va qo‘llab-quvvatlash maqsadida tashkil
+            etiladi.
+          </p>
+          <p>
+            2.2. Tanlov g‘oliblari maxsus ta'lim safari yoki boshqa
+            rag‘batlantirish dasturlariga jalb etilishi mumkin.
+          </p>
+          <p className="little-title">3. Viza va safar bilan bog‘liq holatlar</p>
+          <p>
+            3.1. Agar tanlov g‘olibi chet elga safar qilish huquqini qo‘lga
+            kiritsa, u tegishli davlatning viza talablari va tartib-qoidalariga
+            rioya qilishi shart.
+          </p>
+          <p>
+            3.2. Agar viza beruvchi davlat tomonidan Ishtirokchiga shaxsiy yoki
+            oila a'zolariga bog‘liq sabablarga ko‘ra viza berish rad etilsa,
+            Ishtirokchi ushbu ta'lim safarida qatnasha olmasligi mumkin.{" "}
+          </p>
+          <p>
+            3.3. Ushbu holatda tashkilotchilar tanlov g‘olibiga muqobil
+            rag‘batlantirish imkoniyatlarini taqdim etishga harakat qiladi,
+            lekin boshqa muqobil mukofot yoki kompensatsiya kafolatlanmaydi.{" "}
+          </p>
+          <p className="little-title">4. Majburiyatlar va javobgarlik</p>
+          <p>
+            4.1. Tanlov tashkilotchilari viza olish jarayoniga aralashmaydi va
+            viza rad etilishi yuzasidan javobgar emas.{" "}
+          </p>
+          <p>
+            4.2. Ishtirokchi o‘zining shaxsiy hujjatlari va sayohat bilan
+            bog‘liq barcha huquqiy talablarni mustaqil ravishda bajarishga
+            mas'uldir.
+          </p>
+          <p className="little-title">5. Yakuniy qoidalar</p>
+          <p>
+            5.1. Ushbu Oferta tanlov tashkilotchilari tomonidan o‘zgartirilishi
+            yoki to‘ldirilishi mumkin.{" "}
+          </p>
+          <p>
+            5.2. Ishtirokchi tanlovda ishtirok etish orqali ushbu Oferta
+            shartlariga rozilik bildiradi va unga rioya qilish majburiyatini
+            oladi.
           </p>
         </div>
 
         <div className="tool">
-            <div className="line"></div>
+          <div className="line"></div>
           <label
             for="checkbox-2"
             class="form-control"
@@ -119,7 +116,9 @@ const Offert = () => {
           />
           <span class="custom-checkbox box-1"></span>
         </label>
-        <span className="error" style={{fontSize: '15px'}}>{errors.offert}</span>
+        <span className="error" style={{ fontSize: "15px" }}>
+          {errors.offert}
+        </span>
       </div>
     </div>
   );

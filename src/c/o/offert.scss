@@ -51,7 +51,14 @@
     }
 
     p {
-      color: #fff;
+      color: #ffffffc5;
+      
+      &.little-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 10px;
+        color: #fff;
+      }
     }
 
     .tool {

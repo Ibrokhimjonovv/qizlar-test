@@ -141,7 +141,7 @@ const Signup = () => {
         throw new Error("Serverda xatolik yuz berdi.");
       }
 
-      const data = await response.json();
+      const data = await response.json(); 
       setSuccess(true);
       navigate('/success')
     } catch (err) {
