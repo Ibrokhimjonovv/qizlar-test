@@ -9,6 +9,7 @@ export const AppProvider = ({ children }) => {
   const [isCheck, setIsCheck] = useState(false);
   const [file, setFile] = useState(null);
   const [ success, setSuccess ] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState([]);
 
 
   return (
@@ -26,6 +27,8 @@ export const AppProvider = ({ children }) => {
         setFile,
         success,
         setSuccess,
+        selectedFiles,
+        setSelectedFiles
       }}
     >
       {children}

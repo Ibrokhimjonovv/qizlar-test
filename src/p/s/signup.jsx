@@ -8,12 +8,21 @@ import Offert from "../../c/o/offert";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const { selectedDistrict, selectedRegion, errors, setErrors, isCheck, setSuccess } =
-    useContext(AppContext);
-    const navigate = useNavigate();
+  const {
+    selectedDistrict,
+    selectedRegion,
+    errors,
+    setErrors,
+    isCheck,
+    setSuccess,
+    selectedFiles,
+    setSelectedFiles,
+    file
+  } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,14 +33,15 @@ const Signup = () => {
     tg_username: "",
     email: "",
     place_of_study: "",
-    direction: "",
-    file: null,
+    direction: "Raqami avlod qizlari",
+    // file: selectedFiles,
+    // file: null,
     province: selectedRegion,
     district: selectedDistrict,
     about: "",
   });
 
-  const [fileName, setFileName] = useState("");
+  // const [fileName, setFileName] = useState("");
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -82,12 +92,16 @@ const Signup = () => {
       errors.middle_name = "Sharifni kiritish shart!";
     if (!formData.place_of_study.trim())
       errors.place_of_study = "Ta'lim joyini kiritish shart!";
-    if (!formData.direction.trim())
-      errors.direction = "Yo'nalishni kiritish shart!";
+    // if (!formData.direction.trim())
+    //   errors.direction = "Yo'nalishni kiritish shart!";
     if (!formData.tg_username.trim())
       errors.tg_username = "Telegram kiritish shart!";
     if (!formData.about.trim())
       errors.about = "O'zingiz haqingizda ma'lumot kiritish shart!";
+    // Fayllarni qo'shish
+    //   if (selectedFiles.length === 0) {
+    //     errors.selectedFiles = "Tavsiya noma kiritish shart!";
+    // }
     if (!file) {
       errors.file = "Tavsiya noma kiritish shart!";
     }
@@ -129,7 +143,16 @@ const Signup = () => {
     formDataToSend.append("province", selectedRegion);
     formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
+    // ❗ Tanlangan barcha fayllarni qo‘shamiz
+    // selectedFiles.forEach((file, index) => {
+    //   formDataToSend.append(`file[${index}]`, file);
+    // });
+
     formDataToSend.append("file", file);
+
+    console.log('====================================');
+    console.log(formData);
+    console.log('====================================');
 
     try {
       const response = await fetch("https://online.raqamliavlod.uz/register/", {
@@ -141,9 +164,10 @@ const Signup = () => {
         throw new Error("Serverda xatolik yuz berdi.");
       }
 
-      const data = await response.json(); 
+      const data = await response.json();
+      // setFile(null)
       setSuccess(true);
-      navigate('/success')
+      navigate("/success");
     } catch (err) {
       setErrors("Xatolik yuz berdi. Qaytadan urinib ko‘ring.");
     } finally {
@@ -271,7 +295,10 @@ const Signup = () => {
                   </select>
                   <span className="error">{errors.direction}</span>
                 </div> */}
-                <FileInput change={handleFileChange} fileName={file ? file.name : ''} />
+                <FileInput
+                  change={handleFileChange}
+                  fileName={file ? file.name : ""}
+                />
               </div>
               <div className="input-row">
                 <div className="input-col w-100">
