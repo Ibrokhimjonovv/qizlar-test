@@ -64,7 +64,7 @@ const Wheel = () => {
             </div>
           ))}
         </div>
-        <button id="spin-btn" onClick={spinWheel}>
+        <button id="spin-btn">
           <span></span>
           <div className="triangle"></div>
         </button>

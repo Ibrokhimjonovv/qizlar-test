@@ -18,7 +18,7 @@ const Signup = () => {
     selectedFiles,
     setSelectedFiles,
     file,
-    setFile
+    setFile,
   } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -151,9 +151,9 @@ const Signup = () => {
 
     formDataToSend.append("file", file);
 
-    console.log('====================================');
+    console.log("====================================");
     console.log(formData);
-    console.log('====================================');
+    console.log("====================================");
 
     try {
       const response = await fetch("https://online.raqamliavlod.uz/register/", {
@@ -166,7 +166,7 @@ const Signup = () => {
       }
 
       const data = await response.json();
-      setFile(null)
+      setFile(null);
       setSuccess(true);
       navigate("/success");
     } catch (err) {
@@ -210,6 +210,16 @@ const Signup = () => {
               </div>
               <div className="input-row">
                 <div className="input-col">
+                  <input
+                    type="text"
+                    placeholder="Sharif *"
+                    name="middle_name"
+                    value={formData.middle_name}
+                    onChange={handleChange}
+                  />
+                  <span className="error">{errors.middle_name}</span>
+                </div>
+                <div className="input-col">
                   <InputMask
                     disabled={false}
                     mask="+\9\9\8 (99) 999-99-99"
@@ -221,16 +231,6 @@ const Signup = () => {
                     {(inputProps) => <input {...inputProps} />}
                   </InputMask>
                   <span className="error">{errors.phone_number}</span>
-                </div>
-                <div className="input-col">
-                  <input
-                    type="text"
-                    placeholder="Sharif *"
-                    name="middle_name"
-                    value={formData.middle_name}
-                    onChange={handleChange}
-                  />
-                  <span className="error">{errors.middle_name}</span>
                 </div>
               </div>
               <div className="input-row">

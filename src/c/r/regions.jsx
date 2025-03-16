@@ -77,7 +77,7 @@ const Regions = () => {
           errors.province && <span className="error">{errors.province}</span>
         }
       </div>
-      <div className="input-col">
+      <div className="input-col t">
         <select
           id="districtSelect"
           value={selectedDistrict || ""}
