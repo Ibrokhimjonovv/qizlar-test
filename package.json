@@ -14,8 +14,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
-    "react-lucky-wheel": "^1.1.0",
-    "react-native-svg": "^15.11.2",
     "react-router-dom": "^7.3.0",
     "sass": "^1.85.1"
   },
