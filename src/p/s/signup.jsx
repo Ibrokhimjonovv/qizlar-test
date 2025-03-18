@@ -6,6 +6,7 @@ import { AppContext } from "../../context";
 import FileInput from "../../c/f/fileInput";
 import Offert from "../../c/o/offert";
 import { useNavigate } from "react-router-dom";
+import Directions from "../../c/d/directions";
 
 const Signup = () => {
   const {
@@ -19,10 +20,15 @@ const Signup = () => {
     setSelectedFiles,
     file,
     setFile,
+    slide,
+    setSlide,
+    setBackground,
+    setDirections
   } = useContext(AppContext);
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
+  const [selectedBg, setSelectedBg] = useState(null);
   // const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -34,7 +40,7 @@ const Signup = () => {
     tg_username: "",
     email: "",
     place_of_study: "",
-    direction: "Raqami avlod qizlari",
+    direction: "",
     // file: selectedFiles,
     // file: null,
     province: selectedRegion,
@@ -177,13 +183,21 @@ const Signup = () => {
   };
 
   return (
-    <div id="signup">
-      <p id="text-1">
+    <div
+      id="signup"
+      className={`${slide ? "active" : ""}`}
+      
+    >
+      {/* <p id="text-1">
         Raqamli avlod qizlar respublika tanloviga start beramiz.
-      </p>
+      </p> */}
       <div className="signup-container">
         <div className="s-left">
-          <h1>Ro'yxatdan o'tish</h1>
+          <h1 onClick={() => {
+            setSlide(false);
+            setBackground("");
+            setDirections(null)
+          }}>Ro'yxatdan o'tish</h1>
           <div className="signup-content">
             <form action="" onSubmit={handleSubmit}>
               <div className="input-row">
@@ -281,25 +295,32 @@ const Signup = () => {
                 </div>
               </div>
               <Regions />
-              <div className="input-row">
+              <div className="input-row f-d">
+                <FileInput
+                  change={handleFileChange}
+                  fileName={file ? file.name : ""}
+                />
                 {/* <div className="input-col">
+                  <label htmlFor="" id="op-0">
+                    Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlar
+                  </label>
                   <select
                     name="direction"
-                    value={formData.direction}
+                    value={formData.direction || ""}
                     onChange={handleChange}
                   >
                     <option value="" disabled>
                       Yo'nalish tanlang *
                     </option>
-                    <option value="Yo'nalish 2">Yo'nalish 2</option>
-                    <option value="Yo'nalish 3">Yo'nalish 3</option>
+                    {directions.map((d, index) => (
+                      <option value={d.title} key={index}>
+                        {d.title}
+                      </option>
+                    ))}
                   </select>
                   <span className="error">{errors.direction}</span>
                 </div> */}
-                <FileInput
-                  change={handleFileChange}
-                  fileName={file ? file.name : ""}
-                />
+                <Directions />
               </div>
               <div className="input-row">
                 <div className="input-col w-100">

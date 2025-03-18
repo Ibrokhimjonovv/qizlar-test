@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Wheel from '../../c/w/wheel';
 import "./home.scss";
 import { Link } from 'react-router-dom';
 import t from "./photo_2025-03-13_21-26-27.jpg"
 import Images from '../../c/i/images';
+import Signup from '../s/signup';
+import { AppContext } from '../../context';
 
 const Home = () => {
-  return (
-    <div id='home'>
-        <Images />
-        <h1>Raqamli avlod qizlari tanlovida ishtirok eting</h1>
-        <h2>Va quidagi sayohatlardan biriga ega bo'ling</h2>
-        <Wheel />
-        <div className="start-btn">
-            <Link to="/signup">Tanlovda ishtirok etishni boshlash</Link>
-        </div>
+  const { slide, background } = useContext(AppContext);
 
-        {/* <img src={t} alt="" /> */}
+  return (
+    <div id='home' className={`${slide ? "active" : ""}`}>
+        {
+          slide && background && <img id='bg' src={background} alt="" />
+        }
+        {/* <h1>Raqamli avlod qizlari tanlovida ishtirok eting</h1>
+        <h2>Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlaridagi startuplar uchun imkoniyat!</h2> */}
+        <Images />
+        <Signup />
+        {/* <Wheel /> */}
+        {/* <div className="start-btn">
+            <Link to="/signup">Tanlovda ishtirok etishni boshlash</Link>
+        </div> */}
     </div>
   )
 }

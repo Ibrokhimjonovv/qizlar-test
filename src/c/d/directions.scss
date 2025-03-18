@@ -1,0 +1,28 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    .card {
+        height: 90px;
+        border-radius: 5px;
+        background-color: #ea1e63;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &.active {
+            background-color: transparent;
+            border: 5px solid #ea1e63;
+            color: #ea1e63;
+            font-weight: 600;
+        }
+    }
+}

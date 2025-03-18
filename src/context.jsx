@@ -10,6 +10,10 @@ export const AppProvider = ({ children }) => {
   const [file, setFile] = useState(null);
   const [ success, setSuccess ] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [ directions, setDirections ] = useState("");
+  const [ slide, setSlide ] = useState(false);
+  const [background, setBackground] = useState("");
+
 
 
   return (
@@ -28,7 +32,13 @@ export const AppProvider = ({ children }) => {
         success,
         setSuccess,
         selectedFiles,
-        setSelectedFiles
+        setSelectedFiles,
+        directions,
+        setDirections,
+        slide,
+        setSlide,
+        background,
+        setBackground
       }}
     >
       {children}

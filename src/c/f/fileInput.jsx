@@ -119,7 +119,9 @@ const FileInput = ({ change, fileName }) => {
         onChange={handleFileChange}
         style={{ display: "none" }}
       />
-      <span className="error">{errors.file}</span>
+      {
+        errors.file && <span className="error">{errors.file}</span>
+      }
       {selectedFile && (
         <ul className="file-list">
           <li>

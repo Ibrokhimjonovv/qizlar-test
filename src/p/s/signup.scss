@@ -6,8 +6,22 @@
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: 70px 0 30px;
-  padding-top: 110px;
+  padding: 0 0 30px;
+  // padding-top: 110px;
+  opacity: 0;
+  transform: translateX(70px);
+  position: absolute;
+  z-index: -999;
+  top: 100px;
+  display: none;
+
+  &.active {
+    opacity: 1;
+    z-index: 999;
+    // position: relative;
+    transform: unset;
+    display: unset;
+  }
 
   #text-1 {
     color: #ea1e63;
@@ -71,6 +85,12 @@
             position: relative;
             opacity: 0;
             animation-delay: 0.3s;
+
+            &.f-d {
+              flex-direction: column;
+              gap: 0;
+            }
+
             @keyframes i2 {
               0% {
                 opacity: 0;
@@ -93,6 +113,10 @@
 
             .input-col {
               width: 50%;
+
+              // #op-0 {
+              //   opacity: 0;
+              // }
 
               &.w-100 {
                 width: 100%;
