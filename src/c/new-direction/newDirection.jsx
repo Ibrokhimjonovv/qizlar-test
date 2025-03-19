@@ -81,9 +81,15 @@ const CircleSelector = () => {
           style={{ opacity: fade ? 1 : 0, transition: "opacity 0.3s" }}
         >
           <h3>
-            {direction[activeTab]
-              ? direction[activeTab].title
-              : "Startup yo'nalishlardan birini tanlang"}
+            {direction[activeTab] ? (
+              <p>
+                <p id="f-s">START-UP</p>
+                <p id="f-s-s">Loyiha</p>
+                <p id="o-t">{direction[activeTab].title}</p>
+              </p>
+            ) : (
+              "Startup yo'nalishlardan birini tanlang"
+            )}
           </h3>
         </div>
       </div>
