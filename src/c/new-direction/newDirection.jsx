@@ -25,21 +25,24 @@ const CircleSelector = () => {
   const [rotationAngle, setRotationAngle] = useState(0);
   const [fade, setFade] = useState(true);
 
-  const { setDirections } = useContext(AppContext);
+  const { directions, setDirections } = useContext(AppContext);
 
   const handleClick = (tab) => {
     setFade(false);
     setActiveTab(tab);
+    setDirections(direction[tab].title); // Yumaloq bosilganda directions ni yangilash
     setTimeout(() => {
       setFade(true);
     }, 300);
   };
 
+  // directions o'zgarganda activeTab ni yangilash
   useEffect(() => {
-    if (direction[activeTab]) {
-      setDirections(direction[activeTab].title);
+    const selectedIndex = direction.findIndex((d) => d.title === directions);
+    if (selectedIndex !== -1) {
+      setActiveTab(selectedIndex);
     }
-  }, [activeTab, setDirections]); // `activeTab` o'zgarganda faqat to'g'ri qiymat kiritiladi
+  }, [directions]);
 
   return (
     <div className="holderCircle1">

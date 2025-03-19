@@ -14,6 +14,7 @@ export const AppProvider = ({ children }) => {
   const [ slide, setSlide ] = useState(false);
   const [background, setBackground] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [activeTab, setActiveTab] = useState(0); // activeTab ni qo'shish
 
 
 
@@ -42,7 +43,9 @@ export const AppProvider = ({ children }) => {
         background,
         setBackground,
         isChecked,
-        setIsChecked
+        setIsChecked,
+        activeTab,
+        setActiveTab, // setActiveTab ni qo'shish
       }}
     >
       {children}
