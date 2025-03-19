@@ -51,6 +51,7 @@ const Signup = () => {
     province: selectedRegion,
     district: selectedDistrict,
     about: "",
+    project_link: "",
   });
 
   // const [fileName, setFileName] = useState("");
@@ -109,7 +110,9 @@ const Signup = () => {
     if (!formData.tg_username.trim())
       errors.tg_username = "Telegram kiritish shart!";
     if (!formData.about.trim())
-      errors.about = "O'zingiz haqingizda ma'lumot kiritish shart!";
+      errors.about = "Loyihangiz haqida ma'lumot kiritishingiz shart!";
+    if (!formData.project_link.trim())
+      errors.project_link = "Loyihangiz linkini kiritishingiz shart!";
     // Fayllarni qo'shish
     //   if (selectedFiles.length === 0) {
     //     errors.selectedFiles = "Tavsiya noma kiritish shart!";
@@ -155,6 +158,7 @@ const Signup = () => {
     formDataToSend.append("province", selectedRegion);
     formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
+    formDataToSend.append("project_link", formData.project_link);
     // ❗ Tanlangan barcha fayllarni qo‘shamiz
     // selectedFiles.forEach((file, index) => {
     //   formDataToSend.append(`file[${index}]`, file);
@@ -351,11 +355,18 @@ const Signup = () => {
                 <div className="input-col w-100">
                   <textarea
                     name="about"
-                    placeholder="O‘zingiz haqingizda qisqacha *"
+                    placeholder="Loyihangiz haqingizda qisqacha *"
                     value={formData.about}
                     onChange={handleChange}
                   ></textarea>
                   <span className="error t-error">{errors.about}</span>
+                </div>
+                
+              </div>
+              <div className="input-row">
+              <div className="input-col w-100">
+                  <input type="text" placeholder="Loyiha linkini joylang *" />
+                  <span className="error t-error">{errors.project_link}</span>
                 </div>
               </div>
               <Offert />

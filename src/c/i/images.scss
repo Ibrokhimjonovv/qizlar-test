@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  gap: 20px;
+  gap: 15px;
   padding: 0 30px;
   flex-direction: column;
   margin-top: 20px;
@@ -74,22 +74,29 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    gap: 30px;
   }
 
   .texts {
-    width: 50%;
+    width: 45%;
     // text-align: center;
 
-    h1, h2 {
+    h1, h2, p {
       text-align: center;
+    }
+
+    p {
+      margin-top: 10px;
     }
 
     h1 {
       font-size: 24px;
     }
 
-    h2 {
-      font-size: 22px;
+    p {
+      font-weight: 600;
+      font-size: 22px !important;
+      color: #ea1e63;
     }
 
     button {
@@ -104,7 +111,7 @@
       color: #fff;
       display: flex;
       align-items: center;
-      margin: 15px auto 0;
+      margin: 25px auto 0;
 
       &:hover {
         opacity: 0.8;
@@ -127,7 +134,7 @@
       transform: scale(1.2) rotate(0) translate(var(--x), var(--y)) !important;
     }
 
-    &:nth-child(1) {
+    &:nth-child(1) {  
       --x: 30px;
       --y: 50px;
       transform: translate(var(--x), var(--y)) rotate(25deg);
@@ -141,7 +148,7 @@
     }
     &:nth-child(3) {
       --x: -10px;
-      --y: 20px;
+      --y: 110px;
       transform: translate(var(--x), var(--y)) rotate(20deg);
       z-index: 2;
     }

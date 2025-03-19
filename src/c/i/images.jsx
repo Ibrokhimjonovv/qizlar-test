@@ -22,7 +22,7 @@ const Images = () => {
   };
   return (
     <div id="images" className={`${slide ? "active" : ""}`}>
-      <h1 id="title">RAQAMLI AVLOD QIZLARI</h1>
+      <h1 id="title">Raqamli Avlod Qizlari – Qizlar uchun startup tanlovi!</h1>
       <div className="df">
         <div className="image">
           {/* <img src={img1} alt="" onClick={() => openImage(img1)} /> */}
@@ -36,16 +36,12 @@ const Images = () => {
         <img src={img6} alt="" onClick={() => openImage(img6)} /> */}
         </div>
         <div className="texts">
-          <h1>Qizlar kelajagi – innovatsiyalar bilan yorqinroq!</h1>
-          <h2>Qizlar uchun yangi imkoniyat!</h2>
+          {/* <h1>Qizlar kelajagi – innovatsiyalar bilan yorqinroq!</h1>
+          <h2>Qizlar uchun yangi imkoniyat!</h2> */}
           <p>
-            G‘oyalaringizni startupga aylantiring va global sahnaga qadam
-            qo‘ying! "Raqamli Avlod Qizlari" – ta’lim, IT va yashil iqtisodiyot
-            sohalaridagi eng ilg‘or startuplarni aniqlashga qaratilgan tanlov.
-            Loyihangizni taqdim eting, mutaxassislar bahosidan o‘ting va
-            g‘oliblikka erishing! Eng yaxshi startuplarga – xalqaro ta’lim
-            sayohati! Orzu qiling. Innovatsiya yarating. Imkoniyatni qo‘lga
-            kiriting!
+            Raqamli Avlod Qizlari IT va boshqa sohalarda qizlarning o‘z
+            o‘rnini topishiga, kelajagini qurishiga ko‘mak beruvchi startup
+            tanlovi!
           </p>
           <button type="button" onClick={() => setSlide(true)}>
             Ro'yxatdan o'tish

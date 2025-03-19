@@ -65,7 +65,7 @@
   position: relative;
   z-index: 9999;
 //   left: -300px;
-  bottom: 130px;
+  bottom: 250px;
 //   transform: rotate(-50deg);
 }
 
@@ -165,6 +165,10 @@
   .holderCircle1 {
     bottom: -200px;
     left: -300px;
+  }
+
+  .circleCenter1 {
+    bottom: 120px;
   }
 
   .circleIcon {

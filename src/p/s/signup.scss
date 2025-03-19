@@ -73,7 +73,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding-left: 200px;
+      padding-left: 280px;
       .signup-content {
         display: flex;
         align-items: center;
@@ -334,6 +334,16 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  #signup {
+    .signup-container {
+      .s-left {
+        padding-left: 310px;
       }
     }
   }
