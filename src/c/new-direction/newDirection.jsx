@@ -80,7 +80,7 @@ const CircleSelector = () => {
           <h3>
             {direction[activeTab]
               ? direction[activeTab].title
-              : "Yo'nalishlardan birini tanlang"}
+              : "Startup yo'nalishlardan birini tanlang"}
           </h3>
         </div>
       </div>

@@ -33,7 +33,7 @@ const Directions = () => {
   return (
     <div className="input-col w-100">
       <label htmlFor="" id="t">
-        Yo'nalishlarni tanlang
+        Startup yo'nalishlarni tanlang
       </label>
       <select name="direction" value={directions || ""} onChange={handleChange}>
         <option value="" disabled>
