@@ -8,13 +8,19 @@ const Header = () => {
     <div id="header">
       <div className="h-inner">
         <div className="logo">
-          <Link to="/">
+          <Link
+            to="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setSlide(false);
+              setBackground("");
+              setDirections(null);
+            }}
+          >
             <img src={logo} alt="" />
           </Link>
         </div>
-        <div className="document">
-          {/* <Link to="">Nizom</Link> */}
-        </div>
+        <div className="document">{/* <Link to="">Nizom</Link> */}</div>
       </div>
     </div>
   );

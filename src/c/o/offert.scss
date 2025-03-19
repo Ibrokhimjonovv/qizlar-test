@@ -9,11 +9,11 @@
     backdrop-filter: blur(5px);
     z-index: -999;
     opacity: 0;
-    cursor: url(./close-outline.svg), auto;
-
+    
     &.active {
+      cursor: url(./close-outline.svg), auto;
       opacity: 1;
-      z-index: 999;
+      z-index: 9999999999;
     }
   }
 
@@ -35,7 +35,7 @@
 
     &.active {
       opacity: 1;
-      z-index: 999;
+      z-index: 9999999999;
     }
 
     .popup-inner {

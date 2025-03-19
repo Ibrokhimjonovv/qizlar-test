@@ -7,6 +7,10 @@ import FileInput from "../../c/f/fileInput";
 import Offert from "../../c/o/offert";
 import { useNavigate } from "react-router-dom";
 import Directions from "../../c/d/directions";
+import science from "../../a/talim.jpg";
+import technology from "../../a/it.png";
+import eco from "../../a/eco.jpeg";
+import CircleSelector from "../../c/new-direction/newDirection";
 
 const Signup = () => {
   const {
@@ -23,7 +27,8 @@ const Signup = () => {
     slide,
     setSlide,
     setBackground,
-    setDirections
+    setDirections,
+    directions,
   } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -181,24 +186,44 @@ const Signup = () => {
       setLoading(false);
     }
   };
+  const direction = [
+    {
+      title: "Ta'lim yo'nalishi",
+      image: science,
+    },
+    {
+      title: "IT yo'nalishi",
+      image: technology,
+    },
+    {
+      title: "Yashil Iqtisodiyot yo'nalishi",
+      image: eco,
+    },
+  ];
+
+  const handleChangeCard = (title, image) => () => {
+    setDirections(title); // Yo‘nalishni tanlash
+    setBackground(image); // Orqa fonni o‘zgartirish
+  };
 
   return (
-    <div
-      id="signup"
-      className={`${slide ? "active" : ""}`}
-      
-    >
+    <div id="signup" className={`${slide ? "active" : ""}`}>
       {/* <p id="text-1">
         Raqamli avlod qizlar respublika tanloviga start beramiz.
       </p> */}
       <div className="signup-container">
         <div className="s-left">
-          <h1 onClick={() => {
-            setSlide(false);
-            setBackground("");
-            setDirections(null)
-          }}>Ro'yxatdan o'tish</h1>
+          <h1
+            onClick={() => {
+              setSlide(false);
+              setBackground("");
+              setDirections(null);
+            }}
+          >
+            Ro'yxatdan o'tish
+          </h1>
           <div className="signup-content">
+            <CircleSelector />
             <form action="" onSubmit={handleSubmit}>
               <div className="input-row">
                 <div className="input-col">
@@ -342,6 +367,48 @@ const Signup = () => {
                 </div>
               </div>
             </form>
+
+            {/* <div className="cards wrap">
+              <h2>Yo'nalishlardan birini tanlang</h2>
+              <div className="gg">
+                {direction.map((d, i) => (
+                  <div
+                    className={`card ${directions === d.title ? "active" : ""}`}
+                    key={i}
+                    onClick={handleChangeCard(d.title, d.image)}
+                  >
+                    {d.title}
+                  </div>
+                ))}
+              </div>
+              {directions && (
+                <div>
+                  <div className="input-row">
+                    <div className="input-col">
+                      <label htmlFor="" id="t">
+                        Loyiha haqida qisqacha ma'lumot
+                      </label>
+                      <textarea
+                        name=""
+                        id=""
+                        placeholder="Loyiha haqida qisqacha ma'lumot *"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="input-row">
+                    <div className="input-col">
+                      <label htmlFor="" id="t">
+                        Loyihani tekshirish uchun link
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Loyiha linkini joylang *"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,28 +1,29 @@
 .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 
-    .card {
-        height: 90px;
-        border-radius: 5px;
-        background-color: #ea1e63;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        cursor: pointer;
-        text-align: center;
+  .card {
+    height: 90px;
+    border-radius: 5px;
+    background-color: #ea1e63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border: 5px solid transparent;
 
-        &:hover {
-            opacity: .8;
-        }
-
-        &.active {
-            background-color: transparent;
-            border: 5px solid #ea1e63;
-            color: #ea1e63;
-            font-weight: 600;
-        }
+    &:hover {
+      opacity: 0.8;
     }
+
+    &.active {
+      border-color: #ea1e63;
+      background-color: transparent;
+      color: #ea1e63;
+      // font-weight: 600;
+    }
+  }
 }

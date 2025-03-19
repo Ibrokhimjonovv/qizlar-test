@@ -3,9 +3,8 @@ import "./offert.scss";
 import { AppContext } from "../../context";
 
 const Offert = () => {
-  const { errors, isCheck, setIsCheck } = useContext(AppContext);
+  const { errors, isCheck, setIsCheck, isChecked, setIsChecked } = useContext(AppContext);
 
-  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <div id="offert">

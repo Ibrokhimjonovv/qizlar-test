@@ -6,7 +6,8 @@ import technology from "../../a/it.png";
 import eco from "../../a/eco.jpeg";
 
 const Directions = () => {
-  const { errors, setDirections, directions, background, setBackground} = useContext(AppContext);
+  const { errors, setDirections, directions, background, setBackground } =
+    useContext(AppContext);
   const direction = [
     {
       title: "Ta'lim yo'nalishi",
@@ -21,20 +22,20 @@ const Directions = () => {
       image: eco,
     },
   ];
-  //   const handleChange = (e) => {
-  //     const name = e.target.value;
-  //     setDirections(name);
-  //   };
-  const handleChange = (title, image) => () => {
-    setDirections(title); // Yo‘nalishni tanlash
-    setBackground(image); // Orqa fonni o‘zgartirish
-  };
+    const handleChange = (e) => {
+      const name = e.target.value;
+      setDirections(name);
+    };
+  // const handleChange = (title, image) => () => {
+  //   setDirections(title); // Yo‘nalishni tanlash
+  //   setBackground(image); // Orqa fonni o‘zgartirish
+  // };
   return (
     <div className="input-col w-100">
       <label htmlFor="" id="t">
         Yo'nalishlarni tanlang
       </label>
-      {/* <select name="direction" value={directions || ""} onChange={handleChange}>
+      <select name="direction" value={directions || ""} onChange={handleChange}>
         <option value="" disabled>
           Yo'nalish tanlang *
         </option>
@@ -43,19 +44,18 @@ const Directions = () => {
             {d.title}
           </option>
         ))}
-      </select> */}
-      <div className="cards">
+      </select>
+      {/* <div className="cards">
         {direction.map((d, i) => (
           <div
             className={`card ${directions === d.title ? "active" : ""}`}
             key={i}
             onClick={handleChange(d.title, d.image)}
-            
           >
             {d.title}
           </div>
         ))}
-      </div>
+      </div> */}
       <span className="error">{errors.direction}</span>
     </div>
   );

@@ -13,6 +13,8 @@ export const AppProvider = ({ children }) => {
   const [ directions, setDirections ] = useState("");
   const [ slide, setSlide ] = useState(false);
   const [background, setBackground] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
 
 
 
@@ -38,7 +40,9 @@ export const AppProvider = ({ children }) => {
         slide,
         setSlide,
         background,
-        setBackground
+        setBackground,
+        isChecked,
+        setIsChecked
       }}
     >
       {children}

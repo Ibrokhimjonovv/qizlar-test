@@ -8,13 +8,13 @@ import Signup from '../s/signup';
 import { AppContext } from '../../context';
 
 const Home = () => {
-  const { slide, background } = useContext(AppContext);
+  const { slide, background, isChecked } = useContext(AppContext);
 
   return (
-    <div id='home' className={`${slide ? "active" : ""}`}>
-        {
+    <div id='home' className={`hom ${isChecked ? "active" : ""}`}>
+        {/* {
           slide && background && <img id='bg' src={background} alt="" />
-        }
+        } */}
         {/* <h1>Raqamli avlod qizlari tanlovida ishtirok eting</h1>
         <h2>Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlaridagi startuplar uchun imkoniyat!</h2> */}
         <Images />
