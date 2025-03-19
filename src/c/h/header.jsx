@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./header.scss";
 import logo from "../../../public/logo.png";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../context";
 
 const Header = () => {
+  const { setSlide, setBackground, setDirections } = useContext(AppContext)
   return (
     <div id="header">
       <div className="h-inner">
         <div className="logo">
           <Link
-            to="#"
+          to="#"
             onClick={(e) => {
-              e.preventDefault()
+              e.preventDefault();
               setSlide(false);
               setBackground("");
               setDirections(null);

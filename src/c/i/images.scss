@@ -111,7 +111,7 @@
       color: #fff;
       display: flex;
       align-items: center;
-      margin: 25px auto 0;
+      margin: 50px auto 0;
 
       &:hover {
         opacity: 0.8;
@@ -137,7 +137,7 @@
     &:nth-child(1) {  
       --x: 30px;
       --y: 50px;
-      transform: translate(var(--x), var(--y)) rotate(25deg);
+      transform: translate(var(--x), var(--y)) rotate(15deg);
       z-index: 3;
     }
     &:nth-child(2) {

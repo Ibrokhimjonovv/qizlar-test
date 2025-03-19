@@ -64,9 +64,10 @@
 .circleCenter1 {
   position: relative;
   z-index: 9999;
-//   left: -300px;
+  //   left: -300px;
   bottom: 120px;
-//   transform: rotate(-50deg);
+  //   transform: rotate(-50deg);
+  animation: op 3s forwards;
 }
 
 .circleIcon {
@@ -102,7 +103,7 @@
     }
     transform: scale(1.2) !important;
     .itemInner1 {
-        background: #ea1e63 !important;
+      background: #ea1e63 !important;
     }
   }
 }
@@ -161,6 +162,16 @@
   text-align: center;
 }
 
+@keyframes op {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (min-width: 1500px) {
   .holderCircle1 {
     bottom: -200px;
@@ -215,5 +226,5 @@
     width: 262px;
     text-align: center;
     font-size: 22px;
-}
+  }
 }
