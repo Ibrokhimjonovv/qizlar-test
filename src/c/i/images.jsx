@@ -25,19 +25,12 @@ const Images = () => {
       <h1 id="title">Raqamli Avlod Qizlari – Qizlar uchun startup tanlovi!</h1>
       <div className="df">
         <div className="image">
-          {/* <img src={img1} alt="" onClick={() => openImage(img1)} /> */}
           <img src={img4} alt="" onClick={() => openImage(img4)} />
           <img src={img2} alt="" onClick={() => openImage(img2)} />
           <img src={img3} alt="" onClick={() => openImage(img3)} />
           <img src={img5} alt="" onClick={() => openImage(img5)} />
-          {/* <img src={img6} alt="" onClick={() => openImage(img6)} />
-        <img src={img6} alt="" onClick={() => openImage(img6)} />
-        <img src={img6} alt="" onClick={() => openImage(img6)} />
-        <img src={img6} alt="" onClick={() => openImage(img6)} /> */}
         </div>
         <div className="texts">
-          {/* <h1>Qizlar kelajagi – innovatsiyalar bilan yorqinroq!</h1>
-          <h2>Qizlar uchun yangi imkoniyat!</h2> */}
           <p>
             Raqamli Avlod Qizlari IT va boshqa sohalarda qizlarning o‘z
             o‘rnini topishiga, kelajagini qurishiga ko‘mak beruvchi startup

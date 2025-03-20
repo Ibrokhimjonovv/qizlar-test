@@ -351,18 +351,27 @@
 
 @media screen and (max-width: 500px) {
   #signup {
+    position: relative;
+    margin: unset;
+    top: 50px;
     h1 {
       font-size: 26px;
       margin-top: 0;
     }
     .signup-container {
       .s-left {
-        padding-left: 350px;
+        padding-left: unset;
 
         .signup-content {
-          width: 100%;
-          padding: 0 30px;
+          flex-direction: column;
+          width: 95%;
+          margin: 0 auto;
+          gap: 20px;
           form {
+            z-index: 999999999;
+            position: relative;
+            width: 100%;
+            background-color: #fedfe4;
             .input-row {
               flex-direction: column;
               gap: 0;
