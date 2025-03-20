@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import img1 from "../../a/qizlar_img_1.jpg";
 import img2 from "../../a/qizlar_img_2.jpg";
 import img3 from "../../a/qizlar_img_3.jpg";
@@ -6,12 +6,14 @@ import img4 from "../../a/qizlar_img_4.jpg";
 import img5 from "../../a/qizlar_img_5.jpg";
 import img6 from "../../a/qizlar_img_6.jpg";
 import "./images.scss";
-import { Link } from "react-router-dom";
 import { AppContext } from "../../context";
 
 const Images = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const { slide, setSlide } = useContext(AppContext);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const images = [img4, img2, img3, img5]; // Rasm massivini yaratamiz
 
   const openImage = (img) => {
     setSelectedImage(img);
@@ -20,15 +22,30 @@ const Images = () => {
   const closeImage = () => {
     setSelectedImage(null);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      setHoveredIndex(randomIndex);
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div id="images" className={`${slide ? "active" : ""}`}>
       <h1 id="title">Raqamli Avlod Qizlari – Qizlar uchun startup tanlovi!</h1>
       <div className="df">
         <div className="image">
-          <img src={img4} alt="" onClick={() => openImage(img4)} />
-          <img src={img2} alt="" onClick={() => openImage(img2)} />
-          <img src={img3} alt="" onClick={() => openImage(img3)} />
-          <img src={img5} alt="" onClick={() => openImage(img5)} />
+          {images.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt=""
+              className={hoveredIndex === index ? "hovered" : ""}
+              onClick={() => openImage(src)}
+            />
+          ))}
         </div>
         <div className="texts">
           <p>

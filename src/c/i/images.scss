@@ -130,7 +130,8 @@
     object-fit: cover;
     border: 10px solid #ea1e62bb;
 
-    &:hover {
+    &:hover,
+    &.hovered {
       z-index: 4 !important;
       transform: scale(1.2) rotate(0) translate(var(--x), var(--y)) !important;
     }
@@ -159,12 +160,6 @@
       transform: translate(var(--x), var(--y)) rotate(25deg);
       z-index: 2;
     }
-    // &:nth-child(5) {
-    //   --x: 230px;
-    //   --y: -20px;
-    //   transform: translate(var(--x), var(--y)) rotate(0);
-    //   z-index: 3;
-    // }
   }
 }
 
@@ -209,12 +204,12 @@
         img {
           width: 120px;
           height: 120px;
-  
+
           &:hover {
             z-index: 5 !important;
             transform: scale(1.2) rotate(0) translate(var(--x), var(--y)) !important;
           }
-  
+
           &:nth-child(1) {
             --x: 0px;
             --y: 50px;
@@ -240,7 +235,7 @@
 
       .texts {
         width: 100%;
-        
+
         button {
           margin: 30px auto 0;
         }
@@ -249,7 +244,6 @@
   }
 
   .modal {
-
     .modal-content {
       width: 90% !important;
       height: 50vh !important;
