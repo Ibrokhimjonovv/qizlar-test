@@ -8,6 +8,7 @@ export const AppProvider = ({ children }) => {
   const [errors, setErrors] = useState({});
   const [isCheck, setIsCheck] = useState(false);
   const [file, setFile] = useState(null);
+  const [projectFile, setProjectFile] = useState(null);
   const [ success, setSuccess ] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [ directions, setDirections ] = useState("");
@@ -45,7 +46,9 @@ export const AppProvider = ({ children }) => {
         isChecked,
         setIsChecked,
         activeTab,
-        setActiveTab, // setActiveTab ni qo'shish
+        setActiveTab,
+        projectFile,
+        setProjectFile
       }}
     >
       {children}

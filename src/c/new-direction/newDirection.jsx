@@ -21,7 +21,7 @@ const direction = [
 ];
 
 const CircleSelector = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(null);
   const [rotationAngle, setRotationAngle] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -88,7 +88,7 @@ const CircleSelector = () => {
                 <p id="o-t">{direction[activeTab].title}</p>
               </p>
             ) : (
-              "Startup yo'nalishlardan birini tanlang"
+              "Startup loyiha yo'nalishlardan birini tanlang"
             )}
           </h3>
         </div>

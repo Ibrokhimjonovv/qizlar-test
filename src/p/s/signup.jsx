@@ -11,6 +11,8 @@ import science from "../../a/talim.jpg";
 import technology from "../../a/it.png";
 import eco from "../../a/eco.jpeg";
 import CircleSelector from "../../c/new-direction/newDirection";
+import FileUploader from "../../c/project-file/projectFile";
+// import ProjectFile from "../../c/project-file/projectFile";
 
 const Signup = () => {
   const {
@@ -34,6 +36,7 @@ const Signup = () => {
 
   const [loading, setLoading] = useState(false);
   const [selectedBg, setSelectedBg] = useState(null);
+  const [uploadedFile, setUploadedFile] = useState(null);
   // const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -51,7 +54,7 @@ const Signup = () => {
     province: selectedRegion,
     district: selectedDistrict,
     about: "",
-    project_link: "",
+    // projectFile: "",
   });
 
   // const [fileName, setFileName] = useState("");
@@ -105,20 +108,18 @@ const Signup = () => {
       errors.middle_name = "Sharifni kiritish shart!";
     if (!formData.place_of_study.trim())
       errors.place_of_study = "Ta'lim joyini kiritish shart!";
-    // if (!formData.direction.trim())
-    //   errors.direction = "Yo'nalishni kiritish shart!";
+    if (!directions) errors.direction = "Yo'nalishni kiritish shart!";
     if (!formData.tg_username.trim())
       errors.tg_username = "Telegram kiritish shart!";
     if (!formData.about.trim())
       errors.about = "Loyihangiz haqida ma'lumot kiritishingiz shart!";
-    if (!formData.project_link.trim())
-      errors.project_link = "Loyihangiz linkini kiritishingiz shart!";
+    if (!uploadedFile) errors.projectFile = "Loyihangizni yuklashingiz shart!";
     // Fayllarni qo'shish
     //   if (selectedFiles.length === 0) {
     //     errors.selectedFiles = "Tavsiya noma kiritish shart!";
     // }
     if (!file) {
-      errors.file = "Tavsiya noma kiritish shart!";
+      errors.file = "Tavsiyanoma kiritish shart!";
     }
     if (!formData.phone_number.trim() || formData.phone_number.includes("_"))
       errors.phone_number = "To'liq telefon raqamini kiriting!";
@@ -154,20 +155,21 @@ const Signup = () => {
     formDataToSend.append("tg_username", formData.tg_username);
     formDataToSend.append("email", formData.email);
     formDataToSend.append("place_of_study", formData.place_of_study);
-    formDataToSend.append("direction", formData.direction);
+    formDataToSend.append("direction", directions);
     formDataToSend.append("province", selectedRegion);
     formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
-    formDataToSend.append("project_link", formData.project_link);
+    // formDataToSend.append("projectFile", projectFile);
     // ❗ Tanlangan barcha fayllarni qo‘shamiz
     // selectedFiles.forEach((file, index) => {
     //   formDataToSend.append(`file[${index}]`, file);
     // });
 
     formDataToSend.append("file", file);
+    formDataToSend.append("projectFile", uploadedFile);
 
     console.log("====================================");
-    console.log(formData);
+    console.log(formData, uploadedFile);
     console.log("====================================");
 
     try {
@@ -325,10 +327,7 @@ const Signup = () => {
               </div>
               <Regions />
               <div className="input-row f-d">
-                <FileInput
-                  change={handleFileChange}
-                  fileName={file ? file.name : ""}
-                />
+                <FileInput fileName={file ? file.name : ""} />
                 {/* <div className="input-col">
                   <label htmlFor="" id="op-0">
                     Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlar
@@ -352,21 +351,18 @@ const Signup = () => {
                 <Directions />
               </div>
               <div className="input-row">
+                {/* <ProjectFile pfileName={projectFile ? projectFile.name : ""} /> */}
+                <FileUploader onFileSelect={setUploadedFile} />
+              </div>
+              <div className="input-row">
                 <div className="input-col w-100">
                   <textarea
                     name="about"
-                    placeholder="Loyihangiz haqingizda qisqacha *"
+                    placeholder="Loyihangiz haqida qisqacha *"
                     value={formData.about}
                     onChange={handleChange}
                   ></textarea>
                   <span className="error t-error">{errors.about}</span>
-                </div>
-                
-              </div>
-              <div className="input-row">
-              <div className="input-col w-100">
-                  <input type="text" placeholder="Loyiha linkini joylang *" />
-                  <span className="error t-error">{errors.project_link}</span>
                 </div>
               </div>
               <Offert />

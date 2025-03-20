@@ -82,7 +82,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "./fileInput.scss";
 
-const FileInput = ({ change, fileName }) => {
+const FileInput = ({ fileName }) => {
   const { errors, setFile } = useContext(AppContext);
   const [selectedFile, setSelectedFile] = useState(null);
   const handleFileChange = (e) => {
@@ -107,10 +107,10 @@ const FileInput = ({ change, fileName }) => {
   return (
     <div className="input-col w-100">
       <label htmlFor="" id="t">
-        Tavsiya noma (Institut, maktab yoki MFY tomonidan beriladi)
+        Tavsiyanoma (Institut, maktab yoki MFY tomonidan beriladi)
       </label>
       <label htmlFor="file" className="file-label">
-        <p>{fileName || " Tavsiya noma yuklang *"}</p>
+        <p>{fileName || " Tavsiyanoma yuklang *"}</p>
       </label>
       <input
         type="file"
@@ -123,7 +123,7 @@ const FileInput = ({ change, fileName }) => {
         errors.file && <span className="error">{errors.file}</span>
       }
       {selectedFile && (
-        <ul className="file-list">
+        <ul className="file-list" style={{marginTop: "5px"}}>
           <li>
             <p>{selectedFile}</p>
             <button className="remove-file" onClick={removeFile}>

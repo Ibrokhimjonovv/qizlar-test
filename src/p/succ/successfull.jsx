@@ -13,7 +13,7 @@ const Successfull = () => {
             </div>
             <div className="bottom">
                 <p>Ro'yxatdan o'tish muvaffaqiyatli amalga oshirildi.</p>
-                <Link to="/">Bosh sahifa</Link>
+                <a href="/">Bosh sahifa</a>
             </div>
         </div>
     </div>
