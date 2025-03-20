@@ -34,7 +34,7 @@ const Images = () => {
 
   return (
     <div id="images" className={`${slide ? "active" : ""}`}>
-      <h1 id="title">Raqamli Avlod Qizlari – Qizlar uchun startup tanlovi!</h1>
+      <h1 id="title">Raqamli Avlod Qizlari startup loyihalar tanlovi!</h1>
       <div className="df">
         <div className="image">
           {images.map((src, index) => (
