@@ -166,11 +166,8 @@ const Signup = () => {
     // });
 
     formDataToSend.append("file", file);
-    formDataToSend.append("projectFile", uploadedFile);
+    formDataToSend.append("project_file", uploadedFile);
 
-    console.log("====================================");
-    console.log(formData, uploadedFile);
-    console.log("====================================");
 
     try {
       const response = await fetch("https://online.raqamliavlod.uz/register/", {
