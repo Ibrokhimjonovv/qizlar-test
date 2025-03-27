@@ -15,7 +15,8 @@ import FileUploader from "../../c/project-file/projectFile";
 
 // Images
 import insta from "./social.png";
-import face from "./communication.png"
+import face from "./communication.png";
+import tele from "./telegram.png"
 
 const Signup = () => {
   const {
@@ -328,10 +329,13 @@ const Signup = () => {
               </div>
             </form>
             <div className="contact">
-              <h2>Biz bilan bog'lanish</h2>
+              <h2>Murojat uchun</h2>
               <ul>
                 <li>
-                  <Link to="http://facebook.com/digitalgeneration.uz" target="_blank"><img src={face} alt="" /> Facebook</Link>
+                  <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>
+                </li>
+                <li>
+                  <Link to="https://facebook.com/digitalgeneration.uz" target="_blank"><img src={face} alt="" /> Facebook</Link>
                 </li>
                 <li>
                   <Link to="https://instagram.com/dguzbekistan" target="_blank"><img src={insta} alt="" /> Instagram</Link>
