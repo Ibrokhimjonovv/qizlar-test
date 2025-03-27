@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./newDirection.scss";
 import { AppContext } from "../../context";
+import img from "./img.webp"
 
 const direction = [
   {
@@ -17,6 +18,11 @@ const direction = [
     title: "Iqlim o'zgarishi bilan bog'liq loyihalar",
     image:
       "https://i.pinimg.com/736x/45/d0/e5/45d0e51360fbcf846854516c2d29bb0a.jpg",
+  },
+  {
+    title: "Yashil iqtisodiyot",
+    image:
+      img,
   },
 ];
 
@@ -100,9 +106,10 @@ const CircleSelector = () => {
 // To'g'ri pozitsiyalarni olish uchun indeksni tekshirish
 const getPosition = (index) => {
   const positions = [
-    { right: "200px", top: "5px" },
-    { right: "10px", top: "26%" },
-    { right: "30px", top: "66%" },
+    { right: "260px", top: "0px" },
+    { right: "90px", top: "8.5%" },
+    { right: "-10px", top: "31%" },
+    { right: "10px", top: "60%" },
   ];
   return positions[index] || { right: "0px", top: "0px" };
 };

@@ -241,28 +241,32 @@
   }
 
   .item1 {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
 
   .itemInner1 {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
 
   .itemDot1 {
     &:nth-child(1) {
       top: 20px !important;
-      right: 250px !important;
+      right: 350px !important;
     }
     &:nth-child(2) {
-      right: 30px !important;
-      top: 25% !important;
+      right: 130px !important;
+      top: 8% !important;
     }
 
     &:nth-child(3) {
-      right: 20px !important;
-      top: 58% !important;
+      right: 10px !important;
+      top: 30% !important;
+    }
+    &:nth-child(4) {
+      right: 10px !important;
+      top: 56% !important;
     }
   }
 
@@ -299,13 +303,13 @@
   }
 
   .item1 {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .itemInner1 {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .circleIcon {
@@ -327,7 +331,6 @@
     width: 180px;
     left: 55.3% !important;
     transform: translate(-50%, -50%) rotate(55deg);
-
 
     h3 {
       text-align: center;
@@ -354,23 +357,26 @@
     }
   }
 
-  
-.itemDot1 {
-  animation: pulsee 2s infinite ease-in-out !important;
-}
+  .itemDot1 {
+    animation: pulsee 2s infinite ease-in-out !important;
+  }
 
   .itemDot1 {
     &:nth-child(1) {
-      right: 215px !important;
-      top: 30px !important;
+      right: 217px !important;
+      top: 33px !important;
     }
     &:nth-child(2) {
-      right: 50px !important;
-      top: 17% !important;
+      right: 105px !important;
+      top: 9% !important;
     }
     &:nth-child(3) {
+      right: 35px !important;
+      top: 33% !important;
+    }
+    &:nth-child(4) {
       right: 75px !important;
-      top: 57% !important;
+      top: 58% !important;
     }
   }
 

@@ -22,6 +22,10 @@ const Directions = () => {
       title: "Iqlim o'zgarishi bilan bog'liq loyihalar",
       image: eco,
     },
+    {
+      title: "Yashil iqtisodiyot",
+      image: eco,
+    },
   ];
 
   const handleChange = (e) => {
