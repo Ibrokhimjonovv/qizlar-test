@@ -57,15 +57,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 999999;
+  z-index: 11;
   left: -200px;
 }
 
 .circleCenter1 {
   position: relative;
-  z-index: 9999;
   //   left: -300px;
-  bottom: 120px;
+  bottom: 220px;
   //   transform: rotate(-50deg);
   animation: op 3s forwards;
 }
@@ -85,7 +84,6 @@
   height: 600px;
   position: relative;
   border-radius: 100%;
-  z-index: 20;
   display: flex;
 }
 
@@ -117,7 +115,6 @@
   border: 2px solid #ffffff;
   width: 125px;
   height: 125px;
-  z-index: 50;
   cursor: pointer;
   transition: all 500ms ease;
 }
@@ -142,7 +139,6 @@
   box-shadow: 10px 10px 55px #f9b0c4;
   border-radius: 100%;
   text-align: center;
-  z-index: 25;
   transition: 0.3s;
   overflow: hidden;
 }
@@ -291,7 +287,7 @@
     left: unset;
     height: 260px;
     overflow: hidden;
-    z-index: 999999999999;
+    z-index: 100;
   }
 
   .circleCenter1 {

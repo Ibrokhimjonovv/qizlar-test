@@ -7,7 +7,10 @@ export default defineConfig({
     include: ['react-input-mask', 'react-lucky-wheel'],
   },
   server: {
-    host: true, // Local tarmoqda ochish uchun
-    port: 5173, // Istalgan port raqami
+    host: true, 
+    port: 5173, 
+  },
+  define: {
+    "process.env.NODE_ENV": JSON.stringify("production"),
   },
 });

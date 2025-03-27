@@ -78,8 +78,8 @@ const Offert = () => {
         <div className="tool">
           <div className="line"></div>
           <label
-            for="checkbox-2"
-            class="form-control"
+            htmlFor="checkbox-2"
+            className="form-control"
             onClick={() => {
               setIsChecked(false);
               setIsCheck(!isCheck);
@@ -94,14 +94,14 @@ const Offert = () => {
               checked={isCheck}
               disabled
             />
-            <span class="custom-checkbox"></span>
+            <span className="custom-checkbox"></span>
           </label>
         </div>
       </div>
       <div className="input-row">
         <label
-          for="checkbox-1"
-          class="form-control cont-1"
+          htmlFor="checkbox-1"
+          className="form-control cont-1"
           onClick={() => setIsChecked(true)}
         >
           Ommaviy oferta shartlariga rozilik
@@ -113,7 +113,7 @@ const Offert = () => {
             disabled={!isCheck}
             checked={isCheck}
           />
-          <span class="custom-checkbox box-1"></span>
+          <span className="custom-checkbox box-1"></span>
         </label>
         <span className="error" style={{ fontSize: "15px" }}>
           {errors.offert}

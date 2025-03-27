@@ -12,17 +12,8 @@ const Home = () => {
 
   return (
     <div id='home' className={`hom ${isChecked ? "active" : ""}`}>
-        {/* {
-          slide && background && <img id='bg' src={background} alt="" />
-        } */}
-        {/* <h1>Raqamli avlod qizlari tanlovida ishtirok eting</h1>
-        <h2>Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlaridagi startuplar uchun imkoniyat!</h2> */}
         <Images />
         <Signup />
-        {/* <Wheel /> */}
-        {/* <div className="start-btn">
-            <Link to="/signup">Tanlovda ishtirok etishni boshlash</Link>
-        </div> */}
     </div>
   )
 }

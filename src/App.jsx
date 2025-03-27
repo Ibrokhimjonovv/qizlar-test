@@ -8,6 +8,7 @@ import ScrollToTop from "./c/s-t/scrollToTop";
 import Successfull from "./p/succ/successfull";
 import Not from "./p/404/not";
 import { AppContext } from "./context";
+import Admin from "./p/adminP/admin";
 
 function App() {
   const { success } = useContext(AppContext);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/signup" element={<Signup />}/> */}
         {success && <Route path="/success" element={<Successfull />}/>}
+        <Route path="/admin-panel" element={<Admin />}/>
         {/* <Route path="/success" element={<Successfull />} /> */}
         <Route path="*" element={<Not />} />
       </Routes>

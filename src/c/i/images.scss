@@ -33,7 +33,7 @@
 
     &.active {
       cursor: url(../o/close-outline.svg), auto;
-      z-index: 99999999;
+      z-index: 10;
       opacity: 1;
     }
 
@@ -161,6 +161,13 @@
       z-index: 2;
     }
   }
+}
+
+.text-typing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 1517px) {

@@ -56,6 +56,9 @@ const Images = () => {
           <button type="button" onClick={() => setSlide(true)}>
             Ro'yxatdan o'tish
           </button>
+          <p className="text-typing" style={{marginTop: "50px"}}>
+          <span>"G'OLIBLAR AMERIKAGA TA'LIM SAYOHATI BILAN</span> <span>TAQDIRLANADI"</span>
+          </p>
         </div>
       </div>
 

@@ -5,14 +5,17 @@ import Regions from "../../c/r/regions";
 import { AppContext } from "../../context";
 import FileInput from "../../c/f/fileInput";
 import Offert from "../../c/o/offert";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Directions from "../../c/d/directions";
 import science from "../../a/talim.jpg";
 import technology from "../../a/it.png";
 import eco from "../../a/eco.jpeg";
 import CircleSelector from "../../c/new-direction/newDirection";
 import FileUploader from "../../c/project-file/projectFile";
-// import ProjectFile from "../../c/project-file/projectFile";
+
+// Images
+import insta from "./social.png";
+import face from "./communication.png"
 
 const Signup = () => {
   const {
@@ -37,7 +40,6 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [selectedBg, setSelectedBg] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null);
-  // const [file, setFile] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -49,18 +51,10 @@ const Signup = () => {
     email: "",
     place_of_study: "",
     direction: "",
-    // file: selectedFiles,
-    // file: null,
     province: selectedRegion,
     district: selectedDistrict,
     about: "",
-    // projectFile: "",
   });
-
-  // const [fileName, setFileName] = useState("");
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -114,10 +108,6 @@ const Signup = () => {
     if (!formData.about.trim())
       errors.about = "Loyihangiz haqida ma'lumot kiritishingiz shart!";
     if (!uploadedFile) errors.projectFile = "Loyihangizni yuklashingiz shart!";
-    // Fayllarni qo'shish
-    //   if (selectedFiles.length === 0) {
-    //     errors.selectedFiles = "Tavsiya noma kiritish shart!";
-    // }
     if (!file) {
       errors.file = "Tavsiyanoma kiritish shart!";
     }
@@ -159,11 +149,6 @@ const Signup = () => {
     formDataToSend.append("province", selectedRegion);
     formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
-    // formDataToSend.append("projectFile", projectFile);
-    // ❗ Tanlangan barcha fayllarni qo‘shamiz
-    // selectedFiles.forEach((file, index) => {
-    //   formDataToSend.append(`file[${index}]`, file);
-    // });
 
     formDataToSend.append("file", file);
     formDataToSend.append("project_file", uploadedFile);
@@ -204,16 +189,8 @@ const Signup = () => {
     },
   ];
 
-  const handleChangeCard = (title, image) => () => {
-    setDirections(title); // Yo‘nalishni tanlash
-    setBackground(image); // Orqa fonni o‘zgartirish
-  };
-
   return (
     <div id="signup" className={`${slide ? "active" : ""}`}>
-      {/* <p id="text-1">
-        Raqamli avlod qizlar respublika tanloviga start beramiz.
-      </p> */}
       <div className="signup-container">
         <div className="s-left">
           <h1
@@ -325,30 +302,9 @@ const Signup = () => {
               <Regions />
               <div className="input-row f-d">
                 <FileInput fileName={file ? file.name : ""} />
-                {/* <div className="input-col">
-                  <label htmlFor="" id="op-0">
-                    Ta'lim, IT va Yashil Iqtisodiyot yo'nalishlar
-                  </label>
-                  <select
-                    name="direction"
-                    value={formData.direction || ""}
-                    onChange={handleChange}
-                  >
-                    <option value="" disabled>
-                      Yo'nalish tanlang *
-                    </option>
-                    {directions.map((d, index) => (
-                      <option value={d.title} key={index}>
-                        {d.title}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="error">{errors.direction}</span>
-                </div> */}
                 <Directions />
               </div>
               <div className="input-row">
-                {/* <ProjectFile pfileName={projectFile ? projectFile.name : ""} /> */}
                 <FileUploader onFileSelect={setUploadedFile} />
               </div>
               <div className="input-row">
@@ -371,48 +327,17 @@ const Signup = () => {
                 </div>
               </div>
             </form>
-
-            {/* <div className="cards wrap">
-              <h2>Yo'nalishlardan birini tanlang</h2>
-              <div className="gg">
-                {direction.map((d, i) => (
-                  <div
-                    className={`card ${directions === d.title ? "active" : ""}`}
-                    key={i}
-                    onClick={handleChangeCard(d.title, d.image)}
-                  >
-                    {d.title}
-                  </div>
-                ))}
-              </div>
-              {directions && (
-                <div>
-                  <div className="input-row">
-                    <div className="input-col">
-                      <label htmlFor="" id="t">
-                        Loyiha haqida qisqacha ma'lumot
-                      </label>
-                      <textarea
-                        name=""
-                        id=""
-                        placeholder="Loyiha haqida qisqacha ma'lumot *"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="input-row">
-                    <div className="input-col">
-                      <label htmlFor="" id="t">
-                        Loyihani tekshirish uchun link
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Loyiha linkini joylang *"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div> */}
+            <div className="contact">
+              <h2>Biz bilan bog'lanish</h2>
+              <ul>
+                <li>
+                  <Link to=""><img src={face} alt="" /> Facebook</Link>
+                </li>
+                <li>
+                  <Link to=""><img src={insta} alt="" /> Instagram</Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
