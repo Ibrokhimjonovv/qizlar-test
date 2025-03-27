@@ -95,7 +95,7 @@ const FileInput = ({ fileName }) => {
       }
       setFile(file);
       setSelectedFile(file.name);
-      setFileError(""); // Xatolikni tozalaymiz
+      setFileError("");
     }
   };
 
@@ -122,7 +122,7 @@ const FileInput = ({ fileName }) => {
       {
         errors.file && <span className="error">{errors.file}</span>
       }
-      {selectedFile && (
+      {/* {selectedFile && (
         <ul className="file-list" style={{marginTop: "5px"}}>
           <li>
             <p>{selectedFile}</p>
@@ -131,7 +131,7 @@ const FileInput = ({ fileName }) => {
             </button>
           </li>
         </ul>
-      )}
+      )} */}
     </div>
   );
 };

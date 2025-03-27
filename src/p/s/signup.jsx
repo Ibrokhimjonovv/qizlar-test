@@ -136,7 +136,6 @@ const Signup = () => {
       const parts = bday.split(".");
       return `${parts[2]}-${parts[1]}-${parts[0]}`;
     };
-
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
     formDataToSend.append("surename", formData.surename);
@@ -150,21 +149,17 @@ const Signup = () => {
     formDataToSend.append("province", selectedRegion);
     formDataToSend.append("district", selectedDistrict);
     formDataToSend.append("about", formData.about);
-
     formDataToSend.append("file", file);
     formDataToSend.append("project_file", uploadedFile);
-
 
     try {
       const response = await fetch("https://online.raqamliavlod.uz/register/", {
         method: "POST",
         body: formDataToSend,
       });
-
       if (!response.ok) {
         throw new Error("Serverda xatolik yuz berdi.");
       }
-
       const data = await response.json();
       setFile(null);
       setSuccess(true);
