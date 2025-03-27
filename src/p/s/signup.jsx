@@ -331,10 +331,10 @@ const Signup = () => {
               <h2>Biz bilan bog'lanish</h2>
               <ul>
                 <li>
-                  <Link to=""><img src={face} alt="" /> Facebook</Link>
+                  <Link to="http://facebook.com/digitalgeneration.uz" target="_blank"><img src={face} alt="" /> Facebook</Link>
                 </li>
                 <li>
-                  <Link to=""><img src={insta} alt="" /> Instagram</Link>
+                  <Link to="https://instagram.com/dguzbekistan" target="_blank"><img src={insta} alt="" /> Instagram</Link>
                 </li>
               </ul>
             </div>
