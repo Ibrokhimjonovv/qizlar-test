@@ -5,6 +5,8 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [selectedRegionId, setSelectedRegionId] = useState("");
+  const [selectedDistrictId, setSelectedDistrictId] = useState("");
   const [errors, setErrors] = useState({});
   const [isCheck, setIsCheck] = useState(false);
   const [file, setFile] = useState(null);
@@ -16,8 +18,6 @@ export const AppProvider = ({ children }) => {
   const [background, setBackground] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [activeTab, setActiveTab] = useState(0); // activeTab ni qo'shish
-
-
 
 
   return (
@@ -48,7 +48,11 @@ export const AppProvider = ({ children }) => {
         activeTab,
         setActiveTab,
         projectFile,
-        setProjectFile
+        setProjectFile,
+        selectedRegionId,
+        setSelectedRegionId,
+        selectedDistrictId,
+        setSelectedDistrictId,
       }}
     >
       {children}

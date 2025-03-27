@@ -7,7 +7,18 @@ const districtsURL =
   "https://raw.githubusercontent.com/MIMAXUZ/uzbekistan-regions-data/master/JSON/districts.json";
 
 const Regions = () => {
-    const { setSelectedDistrict, setSelectedRegion, selectedDistrict, selectedRegion, errors } = useContext(AppContext);
+  const { 
+    setSelectedDistrict, 
+    setSelectedRegion, 
+    selectedDistrict, 
+    selectedRegion, 
+    errors,
+    setSelectedDistrictId,
+    setSelectedRegionId,
+    selectedDistrictId,
+    selectedRegionId
+  } = useContext(AppContext);
+  
   const [regions, setRegions] = useState([]);
   const [districts, setDistricts] = useState([]);
 
@@ -30,8 +41,10 @@ const Regions = () => {
 
   const handleRegionChange = async (event) => {
     const selectedRegionId = Number(event.target.value);
-    const fdata = regions.find((e) => Number(e.id) === selectedRegionId)
+    const fdata = regions.find((e) => Number(e.id) === selectedRegionId);
     setSelectedRegion(fdata.name_uz.replace(/�/g, "'"));
+    setSelectedRegionId(selectedRegionId); // Yangi: region ID sini saqlash
+    
     try {
       const response = await fetch(districtsURL);
       if (response.ok) {
@@ -40,6 +53,8 @@ const Regions = () => {
           (district) => Number(district.region_id) === selectedRegionId
         );
         setDistricts(regionDistricts);
+        setSelectedDistrictId(""); // Yangi: tuman ID sini tozalash
+        setSelectedDistrict(""); // Yangi: tuman matnini tozalash
         if (regionDistricts.length === 0) {
           console.warn("Ushbu viloyatga tegishli tumanlar topilmadi.");
         }
@@ -52,8 +67,10 @@ const Regions = () => {
   };
 
   const handleDistrictChange = (event) => {
-    const fdata = districts.find((e) => Number(e.id) === Number(event.target.value))
+    const selectedDistrictId = Number(event.target.value);
+    const fdata = districts.find((e) => Number(e.id) === selectedDistrictId);
     setSelectedDistrict(fdata.name_uz.replace(/�/g, "'"));
+    setSelectedDistrictId(selectedDistrictId); // Yangi: tuman ID sini saqlash
   };
 
   return (
@@ -61,7 +78,7 @@ const Regions = () => {
       <div className="input-col">
         <select
           id="regionSelect"
-          value={selectedRegion || ""}
+          value={selectedRegionId || ""}
           onChange={handleRegionChange}
         >
           <option value="" disabled>
@@ -73,15 +90,14 @@ const Regions = () => {
             </option>
           ))}
         </select>
-        {
-          errors.province && <span className="error">{errors.province}</span>
-        }
+        {errors.province && <span className="error">{errors.province}</span>}
       </div>
       <div className="input-col t">
         <select
           id="districtSelect"
-          value={selectedDistrict || ""}
+          value={selectedDistrictId || ""}
           onChange={handleDistrictChange}
+          disabled={!selectedRegionId}
         >
           <option value="" disabled>
             Tumanni tanlang *
@@ -92,9 +108,7 @@ const Regions = () => {
             </option>
           ))}
         </select>
-        {
-          errors.district && <span className="error">{errors.district}</span>
-        }
+        {errors.district && <span className="error">{errors.district}</span>}
       </div>
     </div>
   );

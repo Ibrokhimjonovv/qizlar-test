@@ -11,15 +11,15 @@ const Directions = () => {
 
   const direction = [
     {
-      title: "Ta'lim yo'nalishi",
+      title: "Ta'lim",
       image: science,
     },
     {
-      title: "IT yo'nalishi",
+      title: "Sun'iy intellekt",
       image: technology,
     },
     {
-      title: "Yashil Iqtisodiyot yo'nalishi",
+      title: "Iqlim o'zgarishi bilan bog'liq loyihalar",
       image: eco,
     },
   ];

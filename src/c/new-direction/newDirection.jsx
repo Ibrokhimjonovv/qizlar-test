@@ -4,17 +4,17 @@ import { AppContext } from "../../context";
 
 const direction = [
   {
-    title: "Ta'lim yo'nalishi",
+    title: "Ta'lim",
     image:
       "https://i.pinimg.com/736x/ab/07/39/ab07392d79619e94ab5a55a0759b58a1.jpg",
   },
   {
-    title: "IT yo'nalishi",
+    title: "Sun'iy intellekt",
     image:
       "https://i.pinimg.com/736x/e1/4e/bd/e14ebd1396c089ca5d97d0e53a6cd3c5.jpg",
   },
   {
-    title: "Yashil Iqtisodiyot yo'nalishi",
+    title: "Iqlim o'zgarishi bilan bog'liq loyihalar",
     image:
       "https://i.pinimg.com/736x/45/d0/e5/45d0e51360fbcf846854516c2d29bb0a.jpg",
   },

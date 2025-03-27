@@ -323,17 +323,18 @@
 
   .selectedText {
     // display: none;
-    top: 43% !important;
+    top: 41% !important;
     width: 180px;
-    left: 52.3% !important;
+    left: 55.3% !important;
     transform: translate(-50%, -50%) rotate(55deg);
+
 
     h3 {
       text-align: center;
       p {
         display: flex;
         flex-direction: column;
-        row-gap: 5px;
+        // row-gap: 5px;
         #f-s {
           font-size: 18px !important;
           text-align: center;
