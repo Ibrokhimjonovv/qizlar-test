@@ -42,7 +42,7 @@ const Images = () => {
       <div className="qosh">
       <img className="qal3" src={qal} alt="" />
       </div>
-      <img className="qal4" src={qal} alt="" />
+      {/* <img className="qal4" src={qal} alt="" /> */}
       <div className="df">
         <div className="image">
           {images.map((src, index) => (

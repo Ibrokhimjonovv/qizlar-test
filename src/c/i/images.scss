@@ -78,6 +78,7 @@
 
   .texts {
     width: 45%;
+    overflow: hidden;
     // text-align: center;
 
     h1,
@@ -281,6 +282,11 @@
       }
     }
 
+    .qosh {
+      bottom: -6%;
+      left: 50%;
+    }
+
     
     .texts {
       h1 {
@@ -307,11 +313,12 @@
       width: 150px !important;
     }
     .qosh {
-      left: 35%;
-      bottom: 15%;
+      left: 37%;
+      bottom: -25%;
       
       .qal3,
       .qal4 {
+        transform: rotate(90deg);
         width: 150px !important;
       }
 
