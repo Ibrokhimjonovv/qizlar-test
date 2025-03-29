@@ -120,7 +120,61 @@
     }
   }
 
-  img {
+  .qal {
+    width: 200px;
+    position: absolute;
+
+    &.qal1 {
+      top: -20px;
+      left: 100px;
+      transform: rotate(-40deg);
+    }
+
+    &.qal2 {
+      right: 60px;
+      top: 70px;
+      transform: rotate(135deg);
+    }
+  }
+
+  .qosh {
+    animation: rot 3s infinite;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 45%;
+    bottom: 20%;
+    transform: rotate(45deg);
+
+    .qal3 {
+      width: 180px;
+      transform: rotate(90deg);
+      // top: 10px;
+      position: relative;
+      right: 50px;
+      top: 10px;
+    }
+
+    // @keyframes rot {
+    //     100% {
+    //       transform: rotate(360deg);
+    //     }
+    // }
+  }
+  .qal4 {
+    left: 40px;
+    width: 200px;
+    bottom: 80px;
+    // left: -90px;
+    position: absolute;
+    transform: rotate(-40deg);
+    rotate: -1;
+  }
+
+  .ran-img {
     position: absolute;
     width: 200px;
     height: 200px;
@@ -168,6 +222,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  p {
+    position: relative;
+  }
+
+  span {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .line {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: #fedfe4;
+    border-left: 1px solid #ea1e63;
+    animation: typing 7s steps(50) infinite alternate;
+    width: 100%;
+  }
+
+  @keyframes typing {
+    0% {
+      left: 0;
+    }
+
+    45%,
+    50%,
+    55% {
+      left: 100%;
+      // margin: 0 -35px 0 35px;
+    }
+
+    100% {
+      left: 0;
+    }
+  }
 }
 
 @media screen and (min-width: 1517px) {
@@ -177,6 +267,21 @@
       top: -40px;
     }
 
+    .qal {
+      &.qal1 {
+        top: -20px;
+        left: 100px;
+        transform: rotate(-45deg);
+      }
+
+      &.qal2 {
+        right: 130px;
+        top: 20px;
+        transform: rotate(135deg);
+      }
+    }
+
+    
     .texts {
       h1 {
         font-size: 30px;
@@ -189,9 +294,46 @@
       p {
         font-size: 18px;
       }
-
+      
       button {
         font-size: 18px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1366px) {
+  #images {
+    .qal4 {
+      width: 150px !important;
+    }
+    .qosh {
+      left: 35%;
+      bottom: 15%;
+      
+      .qal3,
+      .qal4 {
+        width: 150px !important;
+      }
+
+      .qal3 {
+        top: -90px;
+        right: -30px;
+      }
+    }
+    .qal {
+      bottom: 10%;
+      &.qal1 {
+        width: 150px;
+        top: -50px;
+        left: 150px;
+        transform: rotate(-45deg);
+      }
+      
+      &.qal2 {
+        width: 150px;
+        right: 150px;
+        top: 0px;
+        transform: rotate(135deg);
       }
     }
   }
@@ -199,6 +341,40 @@
 
 @media screen and (max-width: 500px) {
   #images {
+
+    .qal1 {
+      width: 100px !important;
+      top: -20px !important;
+      left: 5px !important;
+      z-index: -1;
+    }
+    
+    .qal2 {
+      width: 100px !important;
+      top: 40px !important;
+      right: 10px !important;
+      z-index: -1;
+    }
+    
+    .qosh {
+      bottom: 15%;
+      left: 49%;
+      z-index: -1;
+      width: unset;
+      height: unset;
+      
+      .qal3 {
+        width: 100px !important;
+      }
+    }
+    
+    .qal4 {
+      width: 100px !important;
+      bottom: 6%;
+      left: -5px;
+      
+    }
+
     .df {
       flex-direction: column;
       row-gap: 80px;
@@ -242,6 +418,12 @@
 
       .texts {
         width: 100%;
+
+        .text-typing {
+          .line {
+            display: none;
+          }
+        }
 
         button {
           margin: 30px auto 0;

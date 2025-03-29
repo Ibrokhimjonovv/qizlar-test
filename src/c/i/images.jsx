@@ -8,6 +8,8 @@ import img6 from "../../a/qizlar_img_6.jpg";
 import "./images.scss";
 import { AppContext } from "../../context";
 
+import qal from "../../qal.png"
+
 const Images = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const { slide, setSlide } = useContext(AppContext);
@@ -35,6 +37,12 @@ const Images = () => {
   return (
     <div id="images" className={`${slide ? "active" : ""}`}>
       <h1 id="title">Raqamli Avlod Qizlari startap loyihalar tanlovi!</h1>
+      <img className="qal qal1" src={qal} alt="" />
+      <img className="qal qal2" src={qal} alt="" />
+      <div className="qosh">
+      <img className="qal3" src={qal} alt="" />
+      </div>
+      <img className="qal4" src={qal} alt="" />
       <div className="df">
         <div className="image">
           {images.map((src, index) => (
@@ -42,7 +50,7 @@ const Images = () => {
               key={index}
               src={src}
               alt=""
-              className={hoveredIndex === index ? "hovered" : ""}
+              className={`ran-img ${hoveredIndex === index ? "hovered" : ""}`}
               onClick={() => openImage(src)}
             />
           ))}
@@ -57,7 +65,8 @@ const Images = () => {
             Ro'yxatdan o'tish
           </button>
           <p className="text-typing" style={{marginTop: "50px"}}>
-          <span>Istirok et va AQSHda ta'lim sayohatini qo'lga kirit</span>
+          <span>Ishtirok et va AQSHda ta'lim sayohatini qo'lga kirit</span>
+          <div className="line"></div>
           </p>
         </div>
       </div>
