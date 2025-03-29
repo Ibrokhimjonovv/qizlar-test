@@ -94,7 +94,7 @@ const CircleSelector = () => {
                 <p id="o-t">{direction[activeTab].title}</p>
               </p>
             ) : (
-              "Startup loyiha yo'nalishlardan birini tanlang"
+              "Startap loyiha yo'nalishlardan birini tanlang"
             )}
           </h3>
         </div>
@@ -108,7 +108,7 @@ const getPosition = (index) => {
   const positions = [
     { right: "260px", top: "0px" },
     { right: "90px", top: "8.5%" },
-    { right: "-10px", top: "31%" },
+    { right: "-10px", top: "31%" }, 
     { right: "10px", top: "60%" },
   ];
   return positions[index] || { right: "0px", top: "0px" };

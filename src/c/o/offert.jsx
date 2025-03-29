@@ -48,20 +48,12 @@ const Offert = () => {
             oila a'zolariga bog‘liq sabablarga ko‘ra viza berish rad etilsa,
             Ishtirokchi ushbu ta'lim safarida qatnasha olmasligi mumkin.{" "}
           </p>
-          <p>
-            3.3. Ushbu holatda tashkilotchilar tanlov g‘olibiga muqobil
-            rag‘batlantirish imkoniyatlarini taqdim etishga harakat qiladi,
-            lekin boshqa muqobil mukofot yoki kompensatsiya kafolatlanmaydi.{" "}
-          </p>
           <p className="little-title">4. Majburiyatlar va javobgarlik</p>
           <p>
-            4.1. Tanlov tashkilotchilari viza olish jarayoniga aralashmaydi va
-            viza rad etilishi yuzasidan javobgar emas.{" "}
+            4.1. Tanlov tashkilotchilari ta'lim hujjatlarini rasmiylashtirishga ko'maklashadi.
           </p>
           <p>
-            4.2. Ishtirokchi o‘zining shaxsiy hujjatlari va sayohat bilan
-            bog‘liq barcha huquqiy talablarni mustaqil ravishda bajarishga
-            mas'uldir.
+            4.2. Ishtirokchilar ta'lim sayohati bilan bog'liq hujjatlarni o'z vaqtida taqdim etishga mas'uldirlar.
           </p>
           <p className="little-title">5. Yakuniy qoidalar</p>
           <p>

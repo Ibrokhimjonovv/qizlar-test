@@ -40,7 +40,7 @@ const Directions = () => {
   return (
     <div className="input-col w-100">
       <label htmlFor="" id="t">
-        Startup loyiha yo'nalishini tanlang
+        Startap loyiha yo'nalishini tanlang
       </label>
       <select name="direction" value={directions || ""} onChange={handleChange}>
         <option value="" disabled>

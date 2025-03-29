@@ -34,7 +34,7 @@ const Images = () => {
 
   return (
     <div id="images" className={`${slide ? "active" : ""}`}>
-      <h1 id="title">Raqamli Avlod Qizlari startup loyihalar tanlovi!</h1>
+      <h1 id="title">Raqamli Avlod Qizlari startap loyihalar tanlovi!</h1>
       <div className="df">
         <div className="image">
           {images.map((src, index) => (
@@ -50,14 +50,14 @@ const Images = () => {
         <div className="texts">
           <p>
             Raqamli Avlod Qizlari IT va boshqa sohalarda qizlarning o‘z
-            o‘rnini topishiga, kelajagini qurishiga ko‘mak beruvchi startup
-            tanlovi!
+            o‘rnini topishiga, hamda kelajagini qurishga ko‘mak beruvchi startap
+            tanlov!
           </p>
           <button type="button" onClick={() => setSlide(true)}>
             Ro'yxatdan o'tish
           </button>
           <p className="text-typing" style={{marginTop: "50px"}}>
-          <span>"G'OLIBLAR AMERIKAGA TA'LIM SAYOHATI BILAN</span> <span>TAQDIRLANADI"</span>
+          <span>Istirok et va AQSHda ta'lim sayohatini qo'lga kirit</span>
           </p>
         </div>
       </div>
