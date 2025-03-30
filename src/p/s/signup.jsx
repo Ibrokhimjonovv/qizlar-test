@@ -327,13 +327,16 @@ const Signup = () => {
               <h2>Murojat uchun</h2>
               <ul>
                 <li>
-                  <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>
-                </li>
-                <li>
                   <Link to="https://facebook.com/digitalgeneration.uz" target="_blank"><img src={face} alt="" /> Facebook</Link>
                 </li>
                 <li>
                   <Link to="https://instagram.com/dguzbekistan" target="_blank"><img src={insta} alt="" /> Instagram</Link>
+                </li>
+              </ul>
+              <h2 style={{marginTop: "10px"}}>Ma'lumotlar uchun</h2>
+              <ul>
+                <li>
+                  <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>
                 </li>
               </ul>
             </div>

@@ -75,10 +75,25 @@
 
         ul {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           row-gap: 6px;
           margin-top: 10px;
+          gap: 10px;
+
+          &.sec {
+            display: flex;
+            justify-content: center;
+
+            li {
+              width: 295px;
+            }
+          }
+
           li {
+            display: flex;
+            justify-content: center;
+            background-color: #ea1e6211;
+            border-radius: 5px;
             a {
               display: flex;
               align-items: center;
@@ -136,6 +151,12 @@
             
             ul {
                 grid-template-columns: repeat(1, 1fr);
+
+                &.sec {
+                  li {
+                    width: 100%;
+                  }
+                }
             }
         }
     }

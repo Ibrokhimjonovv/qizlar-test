@@ -22,16 +22,19 @@ const Successfull = () => {
         </div>
       </div>
       <div className="contact">
-        <h2>Natijalar shu yerda e'lon qilinadi.</h2>
+        <h2>Murojat uchun</h2>
         <ul>
-          <li>
-            <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>
-          </li>
           <li>
             <Link to="https://facebook.com/digitalgeneration.uz" target="_blank"><img src={face} alt="" /> Facebook</Link>
           </li>
           <li>
             <Link to="https://instagram.com/dguzbekistan" target="_blank"><img src={insta} alt="" /> Instagram</Link>
+          </li>
+        </ul>
+        <h2>Natijalar shu yerda e'lon qilinadi.</h2>
+        <ul className='sec'>
+          <li>
+            <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>
           </li>
         </ul>
       </div>
