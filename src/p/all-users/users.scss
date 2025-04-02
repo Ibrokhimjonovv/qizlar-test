@@ -7,6 +7,27 @@
   h2 {
     text-align: center;
     color: #ea1e63;
+    position: relative;
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ea1e63;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      padding: 6px 15px;
+      font-size: 15px;
+      color: #fff;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: transparent;
+        border-color: #ea1e63;
+        color: #ea1e63;
+      }
+    }
   }
 
   .users-inner {

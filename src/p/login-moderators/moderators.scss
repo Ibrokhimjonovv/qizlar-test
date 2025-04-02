@@ -1,0 +1,83 @@
+.moderators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    .login-container {
+        padding: 20px;
+        border-radius: 7px;
+        width: 400px;
+        background-color: #ea1e6238;
+
+        h2 {
+            color: #ea1e63;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        form {
+            .input-row {
+                position: relative;
+                margin-top: 20px;
+
+                input {
+                    height: 45px;
+                    width: 100%;
+                    outline: none;
+                    border: 1px solid #ea1e63;
+                    border-radius: 5px;
+                    padding: 0 5px;
+                    
+                    &:valid, &:focus {
+                        & ~ label {
+                            font-size: 13px;
+                            top: -15px;
+                            transform: unset;
+                            background-color: #ea1e63;
+                            color: #fff;
+                            padding: 1px 5px;
+                            border-radius: 5px;
+                            left: 5px;
+                        }
+                    }
+                }
+                label {
+                    cursor: text;
+                }
+
+                button {
+                    width: 100%;
+                    height: 45px;
+                    border-radius: 5px;
+                    border: 1px solid #ea1e63;
+                    font-size: 15px;
+                    background-color: #ea1e63;
+                    color: #fff;
+                    font-weight: 600;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #ea1e62be;
+                    }
+                }
+
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .moderators {
+        .login-container {
+            margin: 0 auto;
+            width: 90%;
+        }       
+    }
+}
