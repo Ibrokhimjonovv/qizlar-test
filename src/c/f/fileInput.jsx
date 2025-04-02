@@ -110,7 +110,7 @@ const FileInput = ({ fileName }) => {
         Tavsiyanoma (Institut, maktab yoki MFY tomonidan beriladi)
       </label>
       <label htmlFor="file" className="file-label">
-        <p>{fileName || " Tavsiyanoma yuklang * (Tavsiya noma mavjud bo'lsa ishtirokchida ustunlik bo'ladi!)"}</p>
+        <p>{fileName || " Tavsiyanoma yuklang *"}</p>
       </label>
       <input
         type="file"
