@@ -58,14 +58,14 @@ const Images = () => {
         <div className="texts">
           <p>
             Raqamli Avlod Qizlari IT va boshqa sohalarda qizlarning o‘z
-            o‘rnini topishiga, hamda kelajagini qurishga ko‘mak beruvchi startap
+            o‘rnini topishiga hamda kelajagini qurishga ko‘mak beruvchi startap
             tanlov!
           </p>
           <button type="button" onClick={() => setSlide(true)}>
             Ro'yxatdan o'tish
           </button>
           <p className="text-typing" style={{marginTop: "50px"}}>
-          <span>Ishtirok et va AQSHda ta'lim sayohatini qo'lga kirit</span>
+          <span>Ishtirok et va AQSHda ta'lim sayohatini qo'lga kirit!</span>
           <div className="line"></div>
           </p>
         </div>

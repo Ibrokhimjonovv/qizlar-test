@@ -9,6 +9,8 @@ import Successfull from "./p/succ/successfull";
 import Not from "./p/404/not";
 import { AppContext } from "./context";
 import Admin from "./p/adminP/admin";
+import Users from "./p/all-users/users";
+import UserDetail from "./p/user-detail/user-detail";
 
 function App() {
   const { success } = useContext(AppContext);
@@ -18,10 +20,10 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/signup" element={<Signup />}/> */}
         {success && <Route path="/success" element={<Successfull />}/>}
-        <Route path="/admin-panel" element={<Admin />}/>
-        {/* <Route path="/success" element={<Successfull />} /> */}
+        <Route path="/users-list" element={<Users />}/>
+        <Route path="/users-list/:id" element={<UserDetail />}/>
+        {/* <Route path="/admin-panel" element={<Admin />}/> */}
         <Route path="*" element={<Not />} />
       </Routes>
     </BrowserRouter>
