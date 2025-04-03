@@ -29,7 +29,7 @@ const FileUploader = ({ onFileSelect }) => {
   return (
     <div className="input-col w-100">
       <label htmlFor="file-upload" className="file-label">
-        <p>{selectedFile ? selectedFile.name : "Loyihangiz faylini yuklang *"}</p>
+        <p>{selectedFile ? selectedFile.name : "Loyihangiz faylini yuklang (Tavsiya qilinadi)"}</p>
       </label>
       <input
         type="file"

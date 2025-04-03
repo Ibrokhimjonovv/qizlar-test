@@ -265,7 +265,7 @@ const Signup = () => {
                 <div className="input-col">
                   <input
                     type="text"
-                    placeholder="Telegram (@username) *"
+                    placeholder="Telegram (@username)"
                     name="tg_username"
                     value={formData.tg_username}
                     onChange={handleChange}
@@ -277,7 +277,7 @@ const Signup = () => {
                 <div className="input-col">
                   <input
                     type="email"
-                    placeholder="Email *"
+                    placeholder="Email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}

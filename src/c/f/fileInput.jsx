@@ -109,8 +109,8 @@ const FileInput = ({ fileName }) => {
       <label htmlFor="" id="t">
         Tavsiyanoma (Institut, maktab yoki MFY tomonidan beriladi)
       </label>
-      <label htmlFor="file" className="file-label">
-        <p>{fileName || " Tavsiyanoma yuklang *"}</p>
+      <label htmlFor="file" className={`file-label tav ${fileName ? "active" : ""}`}>
+        <p id="desk">{fileName || "Tavsiyanoma yuklang (Tavsiya qilinadi)"}</p>
       </label>
       <input
         type="file"

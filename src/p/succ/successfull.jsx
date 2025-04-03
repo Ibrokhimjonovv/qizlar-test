@@ -31,7 +31,7 @@ const Successfull = () => {
             <Link to="https://instagram.com/dguzbekistan" target="_blank"><img src={insta} alt="" /> Instagram</Link>
           </li>
         </ul>
-        <h2>Natijalar shu yerda e'lon qilinadi.</h2>
+        <h2>Natijalar telegram kanalimizda e'lon qilinadi.</h2>
         <ul className='sec'>
           <li>
             <Link to="https://t.me/digitalgeneration_uz" target="_blank"><img src={tele} alt="" /> Telegram</Link>

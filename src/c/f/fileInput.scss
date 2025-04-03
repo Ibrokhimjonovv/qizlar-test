@@ -77,3 +77,24 @@
   margin: 3px 0;
   display: block;
 }
+
+@media screen and (max-width: 500px) {
+  .file-label.tav {
+    height: 65px;
+
+    &.active {
+      height: 45px;
+
+      p {
+        &#desk {
+          -webkit-line-clamp: 1;
+        }
+      }
+    }
+    p {
+      &#desk {
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
