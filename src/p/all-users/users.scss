@@ -4,6 +4,10 @@
   max-width: 1600px;
   margin: 0 auto;
 
+  p {
+    color: #ea1e63;
+  }
+
   h2 {
     text-align: center;
     color: #ea1e63;
@@ -21,6 +25,8 @@
       font-size: 15px;
       color: #fff;
       cursor: pointer;
+
+      
       
       &:hover {
         background-color: transparent;
@@ -98,7 +104,19 @@
         color: #fff;
         cursor: pointer;
 
-        &:disabled {
+        &:hover:not(:disabled) {
+          background-color: #daacac;
+      }
+      
+      
+      &.active {
+          background-color: #4CAF50;
+          color: white;
+          border-color: #4CAF50;
+      }
+
+      &:disabled {
+          cursor: not-allowed;
           background-color: #db86a2;
         }
       }
