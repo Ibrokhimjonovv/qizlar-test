@@ -7,53 +7,106 @@ const Users = () => {
     const [error, setError] = useState(null);
     const [users, setUsers] = useState([]);
     const [selectedRows, setSelectedRows] = useState([]);
-
+    const [pagination, setPagination] = useState({
+        next: null,
+        previous: null,
+        count: 0
+    });
     const navigate = useNavigate()
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            setLoading(true);
-            setError(null);
-        
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                setError("Avtorizatsiya talab qilinadi!");
-                setLoading(false);
+    
+    const fetchUsers = async (url = "https://online.raqamliavlod.uz/protected/") => {
+        setLoading(true);
+        setError(null);
+    
+        const token = localStorage.getItem("accessToken");
+        if (!token) {
+            setError("Avtorizatsiya talab qilinadi!");
+            setLoading(false);
+            return;
+        }
+    
+        try {
+            const res = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+    
+            if (res.status === 401 || res.status === 403) { 
+                localStorage.removeItem("accessToken");
+                navigate("/not-found");
                 return;
             }
-        
-            try {
-                const res = await fetch("https://online.raqamliavlod.uz/protected/", {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                });
-        
-                if (res.status === 401 || res.status === 403) { 
-                    localStorage.removeItem("accessToken");
-                    navigate("/not-found"); // Login sahifasiga yo'naltirish
-                    return;
-                }
-        
-                if (!res.ok) throw new Error("Foydalanuvchilarni yuklashda xatolik");
-                
-                const users = await res.json();
-                setUsers(users.results);
-        
-                const checkedUsers = users.results.filter(user => user.see).map(user => user.id);
-                setSelectedRows(checkedUsers);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-        
     
+            if (!res.ok) throw new Error("Foydalanuvchilarni yuklashda xatolik");
+            
+            const data = await res.json();
+            setUsers(data.results);
+            setPagination({
+                next: data.next,
+                previous: data.previous,
+                count: data.count
+            });
+    
+            const checkedUsers = data.results.filter(user => user.see).map(user => user.id);
+            setSelectedRows(checkedUsers);
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+    useEffect(() => {
         fetchUsers();
     }, []);
+
+    // useEffect(() => {
+    //     const fetchUsers = async () => {
+    //         setLoading(true);
+    //         setError(null);
+        
+    //         const token = localStorage.getItem("accessToken");
+    //         if (!token) {
+    //             setError("Avtorizatsiya talab qilinadi!");
+    //             setLoading(false);
+    //             return;
+    //         }
+        
+    //         try {
+    //             const res = await fetch("https://online.raqamliavlod.uz/protected/", {
+    //                 method: "GET",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                     "Authorization": `Bearer ${token}`
+    //                 }
+    //             });
+        
+    //             if (res.status === 401 || res.status === 403) { 
+    //                 localStorage.removeItem("accessToken");
+    //                 navigate("/not-found"); // Login sahifasiga yo'naltirish
+    //                 return;
+    //             }
+        
+    //             if (!res.ok) throw new Error("Foydalanuvchilarni yuklashda xatolik");
+                
+    //             const users = await res.json();
+    //             setUsers(users.results);
+        
+    //             const checkedUsers = users.results.filter(user => user.see).map(user => user.id);
+    //             setSelectedRows(checkedUsers);
+    //         } catch (error) {
+    //             setError(error.message);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+        
+    
+    //     fetchUsers();
+    // }, []);
     
 
     const toggleRowSelection = async (userId) => {
@@ -139,6 +192,20 @@ const Users = () => {
                         ))}
                     </tbody>
                 </table>
+                <div className="pagination">
+                    <button 
+                        onClick={() => fetchUsers(pagination.previous)} 
+                        disabled={!pagination.previous}
+                    >
+                        Oldingi
+                    </button>
+                    <button 
+                        onClick={() => fetchUsers(pagination.next)} 
+                        disabled={!pagination.next}
+                    >
+                        Keyingi
+                    </button>
+                </div>
             </div>
         </div>
     );

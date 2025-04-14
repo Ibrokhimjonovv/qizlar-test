@@ -81,5 +81,27 @@
         }
       }
     }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+
+      button {
+        padding: 7px 15px;
+        background-color: #ea1e63;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: #db86a2;
+        }
+      }
+    }
   }
 }
