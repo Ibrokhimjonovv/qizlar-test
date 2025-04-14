@@ -40,9 +40,9 @@ const Users = () => {
                 if (!res.ok) throw new Error("Foydalanuvchilarni yuklashda xatolik");
                 
                 const users = await res.json();
-                setUsers(users);
+                setUsers(users.results);
         
-                const checkedUsers = users.filter(user => user.see).map(user => user.id);
+                const checkedUsers = users.results.filter(user => user.see).map(user => user.id);
                 setSelectedRows(checkedUsers);
             } catch (error) {
                 setError(error.message);

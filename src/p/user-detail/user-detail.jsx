@@ -43,14 +43,14 @@ const UserDetail = () => {
                 }
 
                 const users = await res.json();
-                const fdata = users.find(user => Number(user.id) === Number(id));
+                const fdata = users.results.find(user => Number(user.id) === Number(id));
 
                 if (!fdata) {
                     throw new Error("Foydalanuvchi topilmadi!");
                 }
 
                 setUser(fdata);
-                const checkedUsers = users.filter(user => user.see).map(user => user.id);
+                const checkedUsers = users.results.filter(user => user.see).map(user => user.id);
                 setSelectedRows(checkedUsers);
             } catch (error) {
                 setError(error.message);
