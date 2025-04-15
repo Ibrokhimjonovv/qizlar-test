@@ -219,6 +219,7 @@ const Users = () => {
                 <table>
                     <thead>
                         <tr>
+                        <th>№</th>
                             <th>Ism</th>
                             <th>Familiya</th>
                             <th>Sharifi</th>
@@ -226,11 +227,12 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {users.map((user, ind) => (
                             <tr
                                 key={user.id}
                                 className={selectedRows.includes(user.id) ? "active" : ""}
                             >
+                                <td>{(pagination.currentPage - 1) * pagination.itemsPerPage + ind + 1}</td>
                                 <td><Link to={`/users-list/${user.id}`}>{user.name}</Link></td>
                                 <td><Link to={`/users-list/${user.id}`}>{user.surename}</Link></td>
                                 <td><Link to={`/users-list/${user.id}`}>{user.middle_name}</Link></td>

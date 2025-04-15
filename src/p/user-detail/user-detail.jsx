@@ -11,56 +11,71 @@ const UserDetail = () => {
     const [user, setUser] = useState(null);
     const [selectedRows, setSelectedRows] = useState([]);
 
-    useEffect(() => {
+    const findUserInAllPages = async (userId) => {
+        let currentPage = 1;
+        let foundUser = null;
+        const token = localStorage.getItem("accessToken");
+        
+        while (!foundUser) {
+          try {
+            const res = await fetch(`https://online.raqamliavlod.uz/protected/?page=${currentPage}`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+              }
+            });
+    
+            if (!res.ok) break;
+            
+            const data = await res.json();
+            foundUser = data.results.find(user => Number(user.id) === Number(userId));
+            
+            if (foundUser || !data.next) break;
+            
+            currentPage++;
+          } catch (error) {
+            console.error("Xatolik:", error);
+            break;
+          }
+        }
+        
+        return foundUser;
+      };
+    
+      useEffect(() => {
         const fetchUser = async () => {
-            setLoading(true);
-            setError(null);
-
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                setError("Avtorizatsiya talab qilinadi!");
-                navigate("/not-found");
-                return;
+          setLoading(true);
+          setError(null);
+    
+          const token = localStorage.getItem("accessToken");
+          if (!token) {
+            setError("Avtorizatsiya talab qilinadi!");
+            navigate("/not-found");
+            return;
+          }
+    
+          try {
+            const foundUser = await findUserInAllPages(id);
+            
+            if (!foundUser) {
+              throw new Error("Foydalanuvchi topilmadi!");
             }
-
-            try {
-                const res = await fetch(`https://online.raqamliavlod.uz/protected/`, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                });
-
-                if (res.status === 401 || res.status === 403) {
-                    localStorage.removeItem("accessToken");
-                    navigate("/not-found");
-                    return;
-                }
-
-                if (!res.ok) {
-                    throw new Error("Foydalanuvchini yuklashda xatolik");
-                }
-
-                const users = await res.json();
-                const fdata = users.results.find(user => Number(user.id) === Number(id));
-
-                if (!fdata) {
-                    throw new Error("Foydalanuvchi topilmadi!");
-                }
-
-                setUser(fdata);
-                const checkedUsers = users.results.filter(user => user.see).map(user => user.id);
-                setSelectedRows(checkedUsers);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
+    
+            setUser(foundUser);
+            
+            if (foundUser.see) {
+              setSelectedRows(prev => [...prev, foundUser.id]);
             }
+          } catch (error) {
+            setError(error.message);
+          } finally {
+            setLoading(false);
+          }
         };
-
+    
         fetchUser();
-    }, [id, navigate]);
+      }, [id, navigate]);
 
     const toggleRowSelection = async (userId) => {
         const isCurrentlySelected = selectedRows.includes(userId);
