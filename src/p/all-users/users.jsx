@@ -14,7 +14,7 @@ const Users = () => {
         count: 0,
         currentPage: 1,
         totalPages: 0, // Buni 0 dan boshlaymiz
-        itemsPerPage: 40 // Hardcode qilamiz, chunki API har doim 100 ta qaytarayotgan
+        itemsPerPage: 100 // Hardcode qilamiz, chunki API har doim 100 ta qaytarayotgan
     });
     const navigate = useNavigate()
 
