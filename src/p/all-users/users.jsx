@@ -20,9 +20,15 @@ const Users = () => {
 
     const fetchUsers = async (urlOrPage) => {
         let url;
+        let pageNumber;
+        
         if (typeof urlOrPage === 'number') {
+            pageNumber = urlOrPage;
             url = `https://online.raqamliavlod.uz/protected/?page=${urlOrPage}`;
         } else {
+            // URL berilgan bo'lsa, sahifa raqamini ajratib olamiz
+            const match = urlOrPage?.match(/page=(\d+)/);
+            pageNumber = match ? parseInt(match[1]) : 1;
             url = urlOrPage || "https://online.raqamliavlod.uz/protected/";
         }
 
@@ -55,22 +61,26 @@ const Users = () => {
 
             const data = await res.json();
             setUsers(data.results);
+            setUCount(data.count);
 
-            const pageMatch = url.match(/page=(\d+)/);
-            setUCount(data.count)
             const totalPages = Math.ceil(data.count / pagination.itemsPerPage);
 
-            setPagination(prev => ({
-                ...prev,
+            setPagination({
                 next: data.next,
                 previous: data.previous,
                 count: data.count,
-                currentPage: pageMatch ? parseInt(pageMatch[1]) : 1,
-                totalPages: totalPages, // Bu yerda aniq hisoblaymiz
-            }));
+                currentPage: pageNumber,
+                totalPages: totalPages,
+                itemsPerPage: pagination.itemsPerPage
+            });
 
             const checkedUsers = data.results.filter(user => user.see).map(user => user.id);
             setSelectedRows(checkedUsers);
+
+            // Faqat raqamli sahifalarni saqlaymiz
+            if (typeof urlOrPage === 'number') {
+                localStorage.setItem('lastPage', pageNumber);
+            }
         } catch (error) {
             setError(error.message);
         } finally {
@@ -79,8 +89,12 @@ const Users = () => {
     };
 
     useEffect(() => {
-        fetchUsers();
+        // Komponent yuklanganda localStorage'dan oxirgi sahifani o'qiymiz
+        const savedPage = localStorage.getItem('lastPage');
+        const initialPage = savedPage ? parseInt(savedPage) : 1;
+        fetchUsers(initialPage);
     }, []);
+    
 
 
     // useEffect(() => {
@@ -219,7 +233,7 @@ const Users = () => {
                 <table>
                     <thead>
                         <tr>
-                        <th>№</th>
+                            <th>№</th>
                             <th>Ism</th>
                             <th>Familiya</th>
                             <th>Sharifi</th>
@@ -251,35 +265,40 @@ const Users = () => {
                     </tbody>
                 </table>
                 <div className="pagination">
-                    <button
-                        onClick={() => fetchUsers(pagination.previous)}
-                        disabled={!pagination.previous}
-                    >
-                        &laquo;
-                    </button>
+                <button
+                    onClick={() => {
+                        const newPage = pagination.currentPage - 1;
+                        fetchUsers(newPage);
+                    }}
+                    disabled={!pagination.previous || pagination.currentPage === 1}
+                >
+                    &laquo;
+                </button>
 
-                    {getPageNumbers().map((page, index) => (
-                        page === '...' ? (
-                            <span key={`ellipsis-${index}`}>...</span>
-                        ) : (
-                            <button
-                                key={page}
-                                onClick={() => fetchUsers(page)}
-                                className={pagination.currentPage === page ? 'active' : ''}
-                                disabled={page > pagination.totalPages} // BU YERDA MUHIM! Faqat mavjud sahifalar uchun
-                            >
-                                {page}
-                            </button>
-                        )
-                    ))}
+                {getPageNumbers().map((page, index) => (
+                    page === '...' ? (
+                        <span key={`ellipsis-${index}`}>...</span>
+                    ) : (
+                        <button
+                            key={page}
+                            onClick={() => fetchUsers(page)}
+                            className={pagination.currentPage === page ? 'active' : ''}
+                        >
+                            {page}
+                        </button>
+                    )
+                ))}
 
-                    <button
-                        onClick={() => fetchUsers(pagination.next)}
-                        disabled={!pagination.next || pagination.currentPage >= pagination.totalPages} // BU YERDA HAM
-                    >
-                        &raquo;
-                    </button>
-                </div>
+                <button
+                    onClick={() => {
+                        const newPage = pagination.currentPage + 1;
+                        fetchUsers(newPage);
+                    }}
+                    disabled={!pagination.next || pagination.currentPage === pagination.totalPages}
+                >
+                    &raquo;
+                </button>
+            </div>
 
             </div>
         </div>
