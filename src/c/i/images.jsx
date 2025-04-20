@@ -58,7 +58,7 @@ const Images = () => {
           ))}
         </div>
         <div className="texts">
-          <p>Roʻyxatdan oʻtish yakunlandi. Natijani Digital Generation telegram kanalida e'lon qilinadi.</p>
+          <p>Roʻyxatdan oʻtish yakunlandi. Natijalar Digital Generation telegram kanalida e'lon qilinadi.</p>
           <ul className="sec">
               <li>
                 <Link className="telegram-button" to="https://t.me/digitalgeneration_uz" target="_blank">
