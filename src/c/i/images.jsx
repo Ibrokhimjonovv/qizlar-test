@@ -68,7 +68,7 @@ const Images = () => {
               </li>
             </ul>
           <p className="text-typing" style={{ marginTop: "50px" }}>
-            <span>E'tiboringiz uchun raxmat.</span>
+            <span>E'tiboringiz uchun rahmat.</span>
 
             {/* Qo‘shilgan kod shu yerda */}
             

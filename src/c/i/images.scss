@@ -80,7 +80,7 @@
   .texts {
     width: 45%;
     overflow: hidden;
-    // text-align: center;
+    text-align: center;
 
     h1,
     h2,
@@ -259,8 +259,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  align-items: center; // ichidagi elementlarni markazga joylaydi
+  justify-content: center; // vertical markazlash (ixtiyoriy)
+  width: 100%; // kenglik to‘liq bo‘lishi kerak
+  text-align: center; // matnni markazga joylash
+  margin-top: 50px;
+  
   p {
     position: relative;
   }
@@ -276,24 +280,24 @@
     height: 100%;
     background: #fedfe4;
     border-left: 1px solid #ea1e63;
-    animation: typing 7s steps(50) infinite alternate;
+    animation: typing 5s steps(50) infinite alternate;
     width: 100%;
   }
 
   @keyframes typing {
     0% {
-      left: 0;
+      left: 25%;
     }
 
-    45%,
-    50%,
-    55% {
-      left: 100%;
-      // margin: 0 -35px 0 35px;
-    }
+    // 45%,
+    // 50%,
+    // 55% {
+    //   left: 50%;
+    //   // margin: 0 -35px 0 35px;
+    // }
 
     100% {
-      left: 0;
+      left: 78%;
     }
   }
 }
