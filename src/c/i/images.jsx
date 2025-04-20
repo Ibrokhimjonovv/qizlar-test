@@ -7,8 +7,10 @@ import img5 from "../../a/qizlar_img_5.jpg";
 import img6 from "../../a/qizlar_img_6.jpg";
 import "./images.scss";
 import { AppContext } from "../../context";
-
-import qal from "../../qal.png"
+import qal from "../../qal.png";
+import tele from "./telegram.png"
+// Link importi kerak
+import { Link } from "react-router-dom";
 
 const Images = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -40,9 +42,9 @@ const Images = () => {
       <img className="qal qal1" src={qal} alt="" />
       <img className="qal qal2" src={qal} alt="" />
       <div className="qosh">
-      <img className="qal3" src={qal} alt="" />
+        <img className="qal3" src={qal} alt="" />
       </div>
-      {/* <img className="qal4" src={qal} alt="" /> */}
+
       <div className="df">
         <div className="image">
           {images.map((src, index) => (
@@ -56,18 +58,24 @@ const Images = () => {
           ))}
         </div>
         <div className="texts">
-          <p>
-            Raqamli Avlod Qizlari IT va boshqa sohalarda qizlarning o‘z
-            o‘rnini topishiga hamda kelajagini qurishga ko‘mak beruvchi startap
-            tanlov!
+          <p>Roʻyxatdan oʻtish yakunlandi. Natijani Digital Generation telegram kanalida e'lon qilinadi.</p>
+          <ul className="sec">
+              <li>
+                <Link className="telegram-button" to="https://t.me/digitalgeneration_uz" target="_blank">
+                  <img src={tele} alt="Telegram" />
+                  <span>Telegram</span>
+                </Link>
+              </li>
+            </ul>
+          <p className="text-typing" style={{ marginTop: "50px" }}>
+            <span>E'tiboringiz uchun raxmat.</span>
+
+            {/* Qo‘shilgan kod shu yerda */}
+            
+
+            <div className="line"></div>
           </p>
-          <button type="button" onClick={() => setSlide(true)}>
-            Ro'yxatdan o'tish
-          </button>
-          <p className="text-typing" style={{marginTop: "50px"}}>
-          <span>Ishtirok et va AQSHda ta'lim sayohatini qo'lga kirit!</span>
-          <div className="line"></div>
-          </p>
+          
         </div>
       </div>
 
